@@ -87,7 +87,7 @@ main {
     padding-top: 5.5rem;
 }
 
-main > div {
+main > div.option {
     width: 20rem;
     background-color: var(--second_color);
     display: flex;
@@ -100,18 +100,41 @@ main > div {
     box-shadow: 3px 5px 15px var(--second_color);
 }
 
-main > div:active {
+main > div.option:active {
     box-shadow: 3px 5px 15px var(--third_color);
 }
 
-main > div > img {
+main > div.option > img {
     width: 40%;
     margin: 0.6rem;
 }
 
-main > div > p {
+main > div.option > p {
     font-family: var(--title_font);
     font-weight: bold;
     color: var(--first_color);
     font-size: large;
+}
+
+main > div.modal {
+    position: absolute;
+    margin: auto;
+    background-color: var(--fourth_color);
+    width: 50%;
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--second_color);
+    visibility: hidden;
+}
+
+main > div.modal > h1 {
+    font-family: var(--title_font);
+    font-size: xx-large;
+    font-weight: lighter;
+    margin-bottom: 1.5%;
+    color: var(--second_color);
 }

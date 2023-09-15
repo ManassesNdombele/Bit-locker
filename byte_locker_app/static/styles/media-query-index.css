@@ -14,15 +14,15 @@
         margin-bottom: 4rem;
     }
 
-    main > div {
+    main > div.option {
         width: 70%;
     }
 
-    main > div > img {
+    main > div.option > img {
         width: 15%;
     }
 
-    main > div > p {
+    main > div.option > p {
         font-size: larger;
     }
 }
@@ -84,25 +84,25 @@
         padding-bottom: 2.5rem;
     }
 
-    main > div {
+    main > div.option {
         cursor: pointer;
     }
 
-    main > div::selection {
+    main > div.option::selection {
         color: var(--second_color);
         background-color: var(--first_color);
     }
     
-    main > div:hover {
+    main > div.option:hover {
         opacity: 0.8;
     }
 
-    main > div > img::selection {
+    main > div.option > img::selection {
         color: var(--second_color);
         background-color: var(--first_color);
     }
 
-    main > div > p::selection {
+    main > div.option > p::selection {
         color: var(--second_color);
         background-color: var(--first_color);
     }
@@ -163,25 +163,25 @@
         padding-bottom: 2.5rem;
     }
 
-    main > div {
+    main > div.option {
         cursor: pointer;
     }
 
-    main > div::selection {
+    main > div.option::selection {
         color: var(--second_color);
         background-color: var(--first_color);
     }
     
-    main > div:hover {
+    main > div.option:hover {
         opacity: 0.8;
     }
 
-    main > div > img::selection {
+    main > div.option > img::selection {
         color: var(--second_color);
         background-color: var(--first_color);
     }
 
-    main > div > p::selection {
+    main > div.option > p::selection {
         color: var(--second_color);
         background-color: var(--first_color);
     }
