@@ -1,0 +1,188 @@
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .logo-side h1 {
+        font-size: 2em;
+    }
+
+    .logo-side img {
+        width: 30%;
+    }
+
+    main {
+        padding-top: 8rem;
+        margin: auto;
+        flex-direction: column;
+        margin-bottom: 4rem;
+    }
+
+    main > div {
+        width: 70%;
+    }
+
+    main > div > img {
+        width: 15%;
+    }
+
+    main > div > p {
+        font-size: larger;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    header {
+        height: 15vh;
+    }
+
+    .logo-side img {
+        width: 25%;
+        height: 20%;
+        cursor: pointer;
+    }
+
+    .logo-side h1 {
+        cursor: pointer;
+        font-size: xx-large;
+    }
+
+    .logo-side img::selection {
+        color: var(--second_color);
+        background-color: var(--first_color);
+    }
+
+    .logo-side > h1 > strong::selection {
+        color: var(--second_color);
+        background-color: var(--first_color);
+    }
+    
+    .logo-side > h1 > strong:first-child {
+        color: var(--second_color);
+    }
+    
+    .logo-side > h1 > strong:last-child {
+        color: var(--first_color);
+        font-family: var(--title_font);
+    }
+
+    .menu-side > button > img {
+        width: 2.5rem;
+        cursor: pointer;
+    }
+    
+    .menu-side > button > img:hover {
+        box-shadow: 3px 3px 6px var(--second_color);
+    }
+    
+    .menu-side > button > img::selection {
+        color: var(--second_color);
+        background-color: var(--first_color);
+    }
+
+    main {
+        margin: auto;
+        width: 100%;
+        justify-content: space-around;
+        padding-top: 8rem;
+        padding-bottom: 2.5rem;
+    }
+
+    main > div {
+        cursor: pointer;
+    }
+
+    main > div::selection {
+        color: var(--second_color);
+        background-color: var(--first_color);
+    }
+    
+    main > div:hover {
+        opacity: 0.8;
+    }
+
+    main > div > img::selection {
+        color: var(--second_color);
+        background-color: var(--first_color);
+    }
+
+    main > div > p::selection {
+        color: var(--second_color);
+        background-color: var(--first_color);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    header {
+        height: 15vh;
+    }
+
+    .logo-side img {
+        width: 25%;
+        height: 20%;
+        cursor: pointer;
+    }
+
+    .logo-side h1 {
+        cursor: pointer;
+    }
+
+    .logo-side img::selection {
+        color: var(--second_color);
+        background-color: var(--first_color);
+    }
+
+    .logo-side > h1 > strong::selection {
+        color: var(--second_color);
+        background-color: var(--first_color);
+    }
+    
+    .logo-side > h1 > strong:first-child {
+        color: var(--second_color);
+    }
+    
+    .logo-side > h1 > strong:last-child {
+        color: var(--first_color);
+        font-family: var(--title_font);
+    }
+
+    .menu-side > button > img {
+        cursor: pointer;
+    }
+    
+    .menu-side > button > img:hover {
+        box-shadow: 3px 3px 6px var(--second_color);
+    }
+    
+    .menu-side > button > img::selection {
+        color: var(--second_color);
+        background-color: var(--first_color);
+    }
+
+    main {
+        margin: auto;
+        width: 70%;
+        justify-content: space-around;
+        padding-top: 8rem;
+        padding-bottom: 2.5rem;
+    }
+
+    main > div {
+        cursor: pointer;
+    }
+
+    main > div::selection {
+        color: var(--second_color);
+        background-color: var(--first_color);
+    }
+    
+    main > div:hover {
+        opacity: 0.8;
+    }
+
+    main > div > img::selection {
+        color: var(--second_color);
+        background-color: var(--first_color);
+    }
+
+    main > div > p::selection {
+        color: var(--second_color);
+        background-color: var(--first_color);
+    }
+}
