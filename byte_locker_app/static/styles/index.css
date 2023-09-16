@@ -21,7 +21,7 @@ body {
     scroll-behavior: smooth;
 }
 
-header {
+header.main-header {
     height: 10vh;
     width: 100%;
     padding: 0.5% 1.5%;
@@ -133,10 +133,31 @@ div.modal {
     visibility: hidden;
 }
 
-div.modal > h1 {
+header.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+header.modal-header > h1 {
     font-family: var(--title_font);
     font-size: xx-large;
     font-weight: lighter;
     margin-bottom: 1.5%;
     color: var(--second_color);
+}
+
+header.modal-header > button {
+    color: var(--third_color);
+    background-color: transparent;
+    border: 0px none transparent;
+    font-size: 1.8em;
+    cursor: pointer;
+    border-radius: 20%;
+    padding: 0.7rem;
+}
+
+header.modal-header > button:active {
+    border: 2px solid var(--third_color);
 }
