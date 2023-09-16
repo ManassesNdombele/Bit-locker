@@ -116,8 +116,10 @@ main > div.option > p {
     font-size: large;
 }
 
-main > div.modal {
-    position: absolute;
+div.modal {
+    position: fixed;
+    top: 25%;
+    right: 25%;
     margin: auto;
     background-color: var(--fourth_color);
     width: 50%;
@@ -131,7 +133,7 @@ main > div.modal {
     visibility: hidden;
 }
 
-main > div.modal > h1 {
+div.modal > h1 {
     font-family: var(--title_font);
     font-size: xx-large;
     font-weight: lighter;
