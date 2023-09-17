@@ -1,4 +1,8 @@
 function open_modal(modal) {
+    function show_modal_details() {
+        document.getElementById(`loader-${modal}-modal`).style.visibility = 'hidden'
+    }
+
     var modal_finded = false
     for (let counter = 0; modal_finded === false; counter++) {
         var modal_element = document.getElementsByClassName('modal')[counter]
@@ -11,6 +15,7 @@ function open_modal(modal) {
             }
         }
     }
+    setTimeout(show_modal_details, 4000)
 }
 
 function close_modal(modal) {
