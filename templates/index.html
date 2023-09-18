@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,42 +8,42 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Montserrat:wght@200;300;400;500&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../byte_locker_app/static/styles/index.css">
-    <link rel="stylesheet" href="../byte_locker_app/static/styles/media-query-index.css">
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/media-query-index.css' %}">
 </head>
 <body>
     <header class="main-header">
         <div class="logo-side">
-            <img src="../byte_locker_app/static/images/bytelockerlogo.png" alt="ByteLocker">
+            <img src="{% static 'images/bytelockerlogo.png' %}" alt="ByteLocker">
             <h1><strong>Byte</strong><strong>Locker</strong></h1>
         </div>
         <div class="menu-side">
-            <button><img src="../byte_locker_app/static/images/home.png" alt="Home Button Icon"></button>
+            <button><img src="{% static 'images/home.png' %}" alt="Home Button Icon"></button>
         </div>
     </header>
     <main>
         <div class="password-generator option">
-            <img src="../byte_locker_app/static/images/password-generator.png" alt="Password Generator Button Icon">
+            <img src="{% static 'images/password-generator.png' %}" alt="Password Generator Button Icon">
             <p>Gerador de senhas</p>
         </div>
         <div class="saved-passwords option">
-            <img src="../byte_locker_app/static/images/saved-accounts.png" alt="Saved Passwords Button Icon">
+            <img src="{% static 'images/saved-accounts.png' %}" alt="Saved Passwords Button Icon">
             <p>Senhas salvas</p>
         </div>
         <div class="saved-accounts option">
-            <img src="../byte_locker_app/static/images/verified-account.png" alt="Saved Accounts Button Icon">
+            <img src="{% static 'images/verified-account.png' %}" alt="Saved Accounts Button Icon">
             <p>Contas salvas</p>
         </div>
         <div class="authenticator option">
-            <img src="../byte_locker_app/static/images/two-factor-authentication.png" alt="Two Factor Authentication Button Icon">
+            <img src="{% static 'images/two-factor-authentication.png' %}" alt="Two Factor Authentication Button Icon">
             <p>Autenticação</p>
         </div>
         <div class="account-configs option">
-            <img src="../byte_locker_app/static/images/account-settings.png" alt="Account Settings Button Icon">
+            <img src="{% static 'images/account-settings.png' %}" alt="Account Settings Button Icon">
             <p>Definições da conta</p>
         </div>
         <div class="help-center option">
-            <img src="../byte_locker_app/static/images/support.png" alt="Support">
+            <img src="{% static 'images/support.png' %}" alt="Support">
             <p>Ajuda</p>
         </div>
     </main>
@@ -51,7 +52,7 @@
             <h1>Gerador de senhas</h1>
             <button id="close-modal-password-generator-btn">X</button>
         </header>
-        <img src="../byte_locker_app/static/images/loading-load.gif" alt="Loading Gif" id="loader-password-generator-modal">
+        <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-password-generator-modal">
         <div class="modal-details password-generator-modal-details">
             <form>
                 <label for="software-name">Site / Software</label>
@@ -73,7 +74,7 @@
             <h1>Senhas salvas</h1>
             <button id="close-modal-saved-passwords-btn">X</button>
         </header>
-        <img src="../byte_locker_app/static/images/loading-load.gif" alt="Loading Gif" id="loader-saved-passwords-modal">
+        <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-saved-passwords-modal">
         <div class="modal-details saved-passwords-modal-details">
             <p>Nenhuma senha salva no sistema!</p>
             <button>Adicionar nova senha</button>
@@ -84,7 +85,7 @@
             <h1>Contas salvas</h1>
             <button id="close-modal-saved-accounts-btn">X</button>
         </header>
-        <img src="../byte_locker_app/static/images/loading-load.gif" alt="Loading Gif" id="loader-saved-accounts-modal">
+        <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-saved-accounts-modal">
         <div class="modal-details saved-accounts-modal-details">
             <p>Nenhuma conta salva no sistema!</p>
             <button>Adicionar nova conta</button>
@@ -95,7 +96,7 @@
             <h1>Autenticação</h1>
             <button id="close-modal-authenticator-btn">X</button>
         </header>
-        <img src="../byte_locker_app/static/images/loading-load.gif" alt="Loading Gif" id="loader-authenticator-modal">
+        <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-authenticator-modal">
         <div class="modal-details authenticator-modal-details">
             <p>Não é possível fazer a autenticação em dois passos no momento!</p>
         </div>
@@ -105,9 +106,9 @@
             <h1>Sua conta</h1>
             <button id="close-modal-account-configs-btn">X</button>
         </header>
-        <img src="../byte_locker_app/static/images/loading-load.gif" alt="Loading Gif" id="loader-account-configs-modal">
+        <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-account-configs-modal">
         <div class="modal-details account-configs-modal-details">
-            <img src="../byte_locker_app/static/images/user-icon.png" alt="Foto de perfil do usuário">
+            <img src="{% static 'images/user-icon.png' %}" alt="Foto de perfil do usuário">
             <p>Manassés Ndombele</p>
             <p>manassesndombele88@gmail.com</p>
             <p>Contas salvas: 0</p>
@@ -119,11 +120,11 @@
             <h1>Ajuda</h1>
             <button id="close-modal-help-center-btn">X</button>
         </header>
-        <img src="../byte_locker_app/static/images/loading-load.gif" alt="Loading Gif" id="loader-help-center-modal">
+        <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-help-center-modal">
         <div class="modal-details help-center-modal-details">
             <p>De momento a ajuda não está disponível!</p>
         </div>
     </div>
-    <script src="../byte_locker_app/static/js/index-scripts.js"></script>
+    <script src="{% static 'js/index-scripts.js' %}"></script>
 </body>
 </html>
