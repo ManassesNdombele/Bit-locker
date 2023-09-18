@@ -53,12 +53,15 @@
         </header>
         <img src="../byte_locker_app/static/images/loading-load.gif" alt="Loading Gif" id="loader-password-generator-modal">
         <div class="modal-details password-generator-modal-details">
-            <label for="software-name">Site / Software</label>
-            <input type="text" name="software-name-input" id="software-name">
-            <label for="email-user-name">Email / Usuário</label>
-            <input type="text" name="email-user-name-input" id="email-user-name">
-            <label for="char-length">Quantidade de caracteres</label>
-            <input type="number" name="char-length-input" id="char-length">
+            <form>
+                <label for="software-name">Site / Software</label>
+                <input type="text" name="software-name-input" id="software-name">
+                <label for="email-user-name">Email / Usuário</label>
+                <input type="text" name="email-user-name-input" id="email-user-name">
+                <label for="char-length">Quantidade de caracteres</label>
+                <input type="number" name="char-length-input" id="char-length">
+                <button type="submit">Gerar senha</button>
+            </form>
             <section class="generated-password">
                 <input type="text" id="password-5" class="password-input" placeholder="Senha 5">
                 <button>Copiar</button>
