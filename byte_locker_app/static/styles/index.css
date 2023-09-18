@@ -118,11 +118,10 @@ main > div.option > p {
 
 div.modal {
     position: fixed;
-    top: 25%;
-    right: 25%;
+    top: 5%;
     margin: auto;
     background-color: var(--fourth_color);
-    width: 50%;
+    width: 100%;
     border-radius: 10px;
     padding: 1rem;
     display: flex;
@@ -160,4 +159,163 @@ header.modal-header > button {
 
 header.modal-header > button:active {
     border: 2px solid var(--third_color);
+}
+
+.modal > img {
+    display: none;
+}
+
+.password-generator-modal-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1%;
+    width: 100%;
+    height: 50%;
+}
+
+.password-generator-modal-details > section {
+    margin: 0.5rem;
+}
+
+.password-generator-modal-details input {
+    background-color: transparent;
+    border: 1px solid var(--second_color);
+    height: 2rem;
+    width: 12rem;
+    border-radius: 8px;
+    padding: 0.2rem 0.5rem;
+}
+
+.password-generator-modal-details button {
+    background-color: transparent;
+    border: 1px solid var(--second_color);
+    height: 2rem;
+    border-radius: 8px;
+    padding: 0rem 1rem;
+    color: var(--second_color);
+    font-weight: bold;
+    font-family: var(--button_font);
+    cursor: pointer;
+    transition: scale 0.2s ease-in-out;
+}
+
+.password-generator-modal-details button:hover {
+    scale: 1.05;
+}
+
+.password-generator-modal-details button:focus {
+    scale: 1.05;
+}
+
+.saved-passwords-modal-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: column;
+}
+
+.saved-passwords-modal-details p {
+    color: #ff0000;
+    font-weight: bold;
+    margin: 1rem;
+}
+
+.saved-passwords-modal-details button {
+    background-color: transparent;
+    border: 1px solid var(--second_color);
+    height: 2rem;
+    border-radius: 8px;
+    padding: 0rem 1rem;
+    color: var(--second_color);
+    font-weight: bold;
+    font-family: var(--button_font);
+    cursor: pointer;
+    transition: scale 0.2s ease-in-out;
+}
+
+.saved-accounts-modal-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: column;
+}
+
+.saved-accounts-modal-details p {
+    font-weight: bold;
+    color: #ff0000;
+    margin: 1rem;
+}
+
+.saved-accounts-modal-details button {
+    background-color: transparent;
+    border: 1px solid var(--second_color);
+    height: 2rem;
+    border-radius: 8px;
+    padding: 0rem 1rem;
+    color: var(--second_color);
+    font-weight: bold;
+    font-family: var(--button_font);
+    cursor: pointer;
+    transition: scale 0.2s ease-in-out;
+}
+
+.saved-accounts-modal-details button:hover {
+    scale: 1.05;
+}
+
+.authenticator-modal-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.authenticator-modal-details p {
+    font-weight: bold;
+    color: #ff0000;
+    text-align: center;
+    margin: 1rem;
+}
+
+.account-configs-modal-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.account-configs-modal-details img {
+    width: 20%;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+.account-configs-modal-details p {
+    text-align: center;
+    color: var(--second_color);
+    font-weight: bold;
+    margin: 0.4rem;
+    cursor: pointer;
+}
+
+.account-configs-modal-details p:hover {
+    text-decoration: underline;
+}
+
+.help-center-modal-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.help-center-modal-details p {
+    font-weight: bold;
+    color: #ff0000;
+    text-align: center;
+    margin: 1rem;
 }

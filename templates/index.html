@@ -53,24 +53,9 @@
         </header>
         <img src="../byte_locker_app/static/images/loading-load.gif" alt="Loading Gif" id="loader-password-generator-modal">
         <div class="modal-details password-generator-modal-details">
-            <section>
-                <input type="text" id="password-1" class="password-input">
-                <button>Copiar</button>
-            </section>
-            <section>
-                <input type="text" id="password-2" class="password-input">
-                <button>Copiar</button>
-            </section>
-            <section>
-                <input type="text" id="password-3" class="password-input">
-                <button>Copiar</button>
-            </section>
-            <section>
-                <input type="text" id="password-4" class="password-input">
-                <button>Copiar</button>
-            </section>
-            <section>
-                <input type="text" id="password-5" class="password-input">
+            
+            <section class="generated-password">
+                <input type="text" id="password-5" class="password-input" placeholder="Senha 5">
                 <button>Copiar</button>
             </section>
         </div>
@@ -109,7 +94,7 @@
     </div>
     <div class="account-configs modal">
         <header class="modal-header">
-            <h1>Definições da conta</h1>
+            <h1>Sua conta</h1>
             <button id="close-modal-account-configs-btn">X</button>
         </header>
         <img src="../byte_locker_app/static/images/loading-load.gif" alt="Loading Gif" id="loader-account-configs-modal">
@@ -127,7 +112,7 @@
             <button id="close-modal-help-center-btn">X</button>
         </header>
         <img src="../byte_locker_app/static/images/loading-load.gif" alt="Loading Gif" id="loader-help-center-modal">
-        <div>
+        <div class="modal-details help-center-modal-details">
             <p>De momento a ajuda não está disponível!</p>
         </div>
     </div>
