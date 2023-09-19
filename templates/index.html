@@ -54,7 +54,8 @@
         </header>
         <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-password-generator-modal">
         <div class="modal-details password-generator-modal-details">
-            <form>
+            <form action="{% url 'home_view' %}" method="post" target="_self">
+                {% csrf_token %}
                 <label for="software-name">Site / Software</label>
                 <input type="text" name="software-name-input" id="software-name">
                 <label for="email-user-name">Email / Usuário</label>
