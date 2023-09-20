@@ -1,144 +1,157 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ByteLocker</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Montserrat:wght@200;300;400;500&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/media-query-index.css' %}">
-</head>
-<body>
-    <header class="main-header">
-        <div class="logo-side">
-            <img src="{% static 'images/bytelockerlogo.png' %}" alt="ByteLocker">
-            <h1><strong>Byte</strong><strong>Locker</strong></h1>
-        </div>
-        <div class="menu-side">
-            <button><img src="{% static 'images/home.png' %}" alt="Home Button Icon"></button>
-        </div>
-    </header>
-    <main>
-        <div class="password-generator option">
-            <img src="{% static 'images/password-generator.png' %}" alt="Password Generator Button Icon">
-            <p>Gerador de senhas</p>
-        </div>
-        <div class="saved-passwords option">
-            <img src="{% static 'images/saved-accounts.png' %}" alt="Saved Passwords Button Icon">
-            <p>Senhas salvas</p>
-        </div>
-        <div class="saved-accounts option">
-            <img src="{% static 'images/verified-account.png' %}" alt="Saved Accounts Button Icon">
-            <p>Contas salvas</p>
-        </div>
-        <div class="authenticator option">
-            <img src="{% static 'images/two-factor-authentication.png' %}" alt="Two Factor Authentication Button Icon">
-            <p>Autenticação</p>
-        </div>
-        <div class="account-configs option">
-            <img src="{% static 'images/account-settings.png' %}" alt="Account Settings Button Icon">
-            <p>Definições da conta</p>
-        </div>
-        <div class="help-center option">
-            <img src="{% static 'images/support.png' %}" alt="Support">
-            <p>Ajuda</p>
-        </div>
-    </main>
-    <div class="password-generator modal">
-        <header class="modal-header">
-            <h1>Gerador de senhas</h1>
-            <button id="close-modal-password-generator-btn">X</button>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ByteLocker</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Montserrat:wght@200;300;400;500&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+        <link rel="stylesheet" href="{% static 'styles/media-query-index.css' %}">
+    </head>
+    <body>
+        <header class="main-header">
+            <div class="logo-side">
+                <img src="{% static 'images/bytelockerlogo.png' %}" alt="ByteLocker">
+                <h1><strong>Byte</strong><strong>Locker</strong></h1>
+            </div>
+            <div class="menu-side">
+                <button><img src="{% static 'images/home.png' %}" alt="Home Button Icon"></button>
+            </div>
         </header>
-        <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-password-generator-modal">
-        <div class="modal-details password-generator-modal-details">
-            {% if not DATA_SENDED %}
-                <form action="{% url 'passwd_gen' %}" method="post" target="_self">
-                    {% csrf_token %}
-                    <label for="software-name">Site / Software</label>
-                    <input type="text" name="software-name-input" id="software-name">
-                    <label for="email-user-name">Email / Usuário</label>
-                    <input type="text" name="email-user-name-input" id="email-user-name">
-                    <label for="char-length">Quantidade de caracteres</label>
-                    <input type="number" name="char-length-input" id="char-length">
-                    <button type="submit">Gerar senha</button>
-                </form>
-            {% else %}
-                <label for="passwd_1">{{ FIRST_PASSWD }}</label>
-                <input type="radio" id="passwd_1">
-                <label for="passwd_2">{{ SECOND_PASSWD }}</label>
-                <input type="radio" id="passwd_2">
-                <label for="passwd_3">{{ THIRD_PASSWD }}</label>
-                <input type="radio" id="passwd_3">
-                <label for="passwd_4">{{ FOURTH_PASSWD }}</label>
-                <input type="radio" id="passwd_4">
-                <label for="passwd_5">{{ FIFTH_PASSWD }}</label>
-                <input type="radio" id="passwd_5">
-            {% endif %}
-            <section class="generated-password">
-                <input type="text" id="password-5" class="password-input" placeholder="Senha 5">
-                <button>Copiar</button>
-            </section>
+        <main>
+            <div class="password-generator option">
+                <img src="{% static 'images/password-generator.png' %}" alt="Password Generator Button Icon">
+                <p>Gerador de senhas</p>
+            </div>
+            <div class="saved-passwords option">
+                <img src="{% static 'images/saved-accounts.png' %}" alt="Saved Passwords Button Icon">
+                <p>Senhas salvas</p>
+            </div>
+            <div class="saved-accounts option">
+                <img src="{% static 'images/verified-account.png' %}" alt="Saved Accounts Button Icon">
+                <p>Contas salvas</p>
+            </div>
+            <div class="authenticator option">
+                <img src="{% static 'images/two-factor-authentication.png' %}" alt="Two Factor Authentication Button Icon">
+                <p>Autenticação</p>
+            </div>
+            <div class="account-configs option">
+                <img src="{% static 'images/account-settings.png' %}" alt="Account Settings Button Icon">
+                <p>Definições da conta</p>
+            </div>
+            <div class="help-center option">
+                <img src="{% static 'images/support.png' %}" alt="Support">
+                <p>Ajuda</p>
+            </div>
+        </main>
+        <div class="password-generator modal">
+            <header class="modal-header">
+                <h1>Gerador de senhas</h1>
+                <button id="close-modal-password-generator-btn">X</button>
+            </header>
+            <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-password-generator-modal">
+            <div class="modal-details password-generator-modal-details">
+                {% if not DATA_SENDED %}
+                    <form action="{% url 'passwd_gen' %}" method="post" target="_self">
+                        {% csrf_token %}
+                        <label for="software-name">Site / Software</label>
+                        <input type="text" name="software-name-input" id="software-name">
+                        <label for="email-user-name">Email / Usuário</label>
+                        <input type="text" name="email-user-name-input" id="email-user-name">
+                        <label for="char-length">Quantidade de caracteres</label>
+                        <input type="number" name="char-length-input" id="char-length">
+                        <button type="submit">Gerar senha</button>
+                    </form>
+                {% else %}
+                    <div class="generated-passwords">
+                        <h2>Escolha uma das senhas geradas</h2>
+                        <section class="generated-passwd">
+                            <label for="passwd_1">{{ FIRST_PASSWD }}</label>
+                            <input type="radio" id="passwd_1" name="passwords" value="{{ FIRST_PASSWD }}">
+                        </section>
+                        <section class="generated-passwd">
+                            <label for="passwd_2">{{ SECOND_PASSWD }}</label>
+                            <input type="radio" id="passwd_2" name="passwords" value="{{ SECOND_PASSWD }}">
+                        </section>
+                        <section class="generated-passwd">
+                            <label for="passwd_3">{{ THIRD_PASSWD }}</label>
+                            <input type="radio" id="passwd_3" name="passwords" value="{{ THIRD_PASSWD }}">
+                        </section>
+                        <section class="generated-passwd">
+                            <label for="passwd_4">{{ FOURTH_PASSWD }}</label>
+                            <input type="radio" id="passwd_4" name="passwords" value="{{ FOURTH_PASSWD }}">
+                        </section>
+                        <section class="generated-passwd">
+                            <label for="passwd_5">{{ FIFTH_PASSWD }}</label>
+                            <input type="radio" id="passwd_5" name="passwords" value="{{ FIFTH_PASSWD }}">
+                        </section>
+                        <section class="options">
+                            <button>Salvar</button>
+                            <button>Regenerar</button>
+                        </section>
+                    </div>
+                {% endif %}
+            </div>
         </div>
-    </div>
-    <div class="saved-passwords modal">
-        <header class="modal-header">
-            <h1>Senhas salvas</h1>
-            <button id="close-modal-saved-passwords-btn">X</button>
-        </header>
-        <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-saved-passwords-modal">
-        <div class="modal-details saved-passwords-modal-details">
-            <p>Nenhuma senha salva no sistema!</p>
-            <button>Adicionar nova senha</button>
+        <div class="saved-passwords modal">
+            <header class="modal-header">
+                <h1>Senhas salvas</h1>
+                <button id="close-modal-saved-passwords-btn">X</button>
+            </header>
+            <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-saved-passwords-modal">
+            <div class="modal-details saved-passwords-modal-details">
+                <p>Nenhuma senha salva no sistema!</p>
+                <button>Adicionar nova senha</button>
+            </div>
         </div>
-    </div>
-    <div class="saved-accounts modal">
-        <header class="modal-header">
-            <h1>Contas salvas</h1>
-            <button id="close-modal-saved-accounts-btn">X</button>
-        </header>
-        <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-saved-accounts-modal">
-        <div class="modal-details saved-accounts-modal-details">
-            <p>Nenhuma conta salva no sistema!</p>
-            <button>Adicionar nova conta</button>
+        <div class="saved-accounts modal">
+            <header class="modal-header">
+                <h1>Contas salvas</h1>
+                <button id="close-modal-saved-accounts-btn">X</button>
+            </header>
+            <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-saved-accounts-modal">
+            <div class="modal-details saved-accounts-modal-details">
+                <p>Nenhuma conta salva no sistema!</p>
+                <button>Adicionar nova conta</button>
+            </div>
         </div>
-    </div>
-    <div class="authenticator modal">
-        <header class="modal-header">
-            <h1>Autenticação</h1>
-            <button id="close-modal-authenticator-btn">X</button>
-        </header>
-        <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-authenticator-modal">
-        <div class="modal-details authenticator-modal-details">
-            <p>Não é possível fazer a autenticação em dois passos no momento!</p>
+        <div class="authenticator modal">
+            <header class="modal-header">
+                <h1>Autenticação</h1>
+                <button id="close-modal-authenticator-btn">X</button>
+            </header>
+            <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-authenticator-modal">
+            <div class="modal-details authenticator-modal-details">
+                <p>Não é possível fazer a autenticação em dois passos no momento!</p>
+            </div>
         </div>
-    </div>
-    <div class="account-configs modal">
-        <header class="modal-header">
-            <h1>Sua conta</h1>
-            <button id="close-modal-account-configs-btn">X</button>
-        </header>
-        <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-account-configs-modal">
-        <div class="modal-details account-configs-modal-details">
-            <img src="{% static 'images/user-icon.png' %}" alt="Foto de perfil do usuário">
-            <p>Manassés Ndombele</p>
-            <p>manassesndombele88@gmail.com</p>
-            <p>Contas salvas: 0</p>
-            <p>Senhas salvas: 0</p>
+        <div class="account-configs modal">
+            <header class="modal-header">
+                <h1>Sua conta</h1>
+                <button id="close-modal-account-configs-btn">X</button>
+            </header>
+            <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-account-configs-modal">
+            <div class="modal-details account-configs-modal-details">
+                <img src="{% static 'images/user-icon.png' %}" alt="Foto de perfil do usuário">
+                <p>Manassés Ndombele</p>
+                <p>manassesndombele88@gmail.com</p>
+                <p>Contas salvas: 0</p>
+                <p>Senhas salvas: 0</p>
+            </div>
         </div>
-    </div>
-    <div class="help-center modal">
-        <header class="modal-header">
-            <h1>{{ ERROR_DESC }}</h1>
-            <button id="close-modal-help-center-btn">X</button>
-        </header>
-        <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-help-center-modal">
-        <div class="modal-details help-center-modal-details">
-            <p>De momento a ajuda não está disponível!</p>
+        <div class="help-center modal">
+            <header class="modal-header">
+                <h1>{{ ERROR_DESC }}</h1>
+                <button id="close-modal-help-center-btn">X</button>
+            </header>
+            <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-help-center-modal">
+            <div class="modal-details help-center-modal-details">
+                <p>De momento a ajuda não está disponível!</p>
+            </div>
         </div>
-    </div>
-    <script src="{% static 'js/index-scripts.js' %}"></script>
-</body>
+        <script src="{% static 'js/index-scripts.js' %}"></script>
+    </body>
 </html>
