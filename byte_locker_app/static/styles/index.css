@@ -116,7 +116,7 @@ main > div.option > p {
     font-size: large;
 }
 
-div.modal {
+.modal {
     position: fixed;
     top: 5%;
     margin: auto;
@@ -132,14 +132,14 @@ div.modal {
     visibility: hidden;
 }
 
-header.modal-header {
+.modal-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
 }
 
-header.modal-header > h1 {
+.modal-header > h1 {
     font-family: var(--title_font);
     font-size: xx-large;
     font-weight: lighter;
@@ -147,17 +147,17 @@ header.modal-header > h1 {
     color: var(--second_color);
 }
 
-header.modal-header > button {
+.modal-header > button {
     color: var(--third_color);
     background-color: transparent;
     border: 0px none transparent;
     font-size: 1.8em;
     cursor: pointer;
     border-radius: 20%;
-    padding: 0.7rem;
+    font-weight: lighter;
 }
 
-header.modal-header > button:active {
+.modal-header > button:active {
     border: 2px solid var(--third_color);
 }
 
@@ -182,6 +182,60 @@ header.modal-header > button:active {
     justify-content: center;
     width: 100%;
     height: 50%;
+    margin: 2.5rem;
+}
+
+.password-generator-modal-details > form > label {
+    font-weight: bolder;
+    color: var(--third_color);
+    font-style: italic;
+}
+
+.password-generator-modal-details > form > input {
+    background-color: transparent;
+    border: 1px solid var(--second_color);
+    height: 2rem;
+    width: 90%;
+    border-radius: 8px;
+    padding: 0.2rem 0.5rem;
+    margin: 1rem;
+}
+
+.generated-passwords {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+}
+
+.generated-passwords > h2 {
+    font-size: 1.1rem;
+    color: var(--third_color);
+    font-weight: bold;
+    text-align: center;
+}
+
+.generated-passwords > section {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-direction: row-reverse;
+    margin-top: 0.8rem;
+    width: 100%;
+}
+
+.generated-passwords > section > label {
+    color: var(--third_color);
+    font-weight: bolder;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+}
+
+.generated-passwords > .options {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1rem;
 }
 
 .password-generator-modal-details > section {
@@ -189,23 +243,7 @@ header.modal-header > button:active {
     display: none;
 }
 
-.password-generator-modal-details input {
-    background-color: transparent;
-    border: 1px solid var(--second_color);
-    height: 2rem;
-    width: 30%;
-    border-radius: 8px;
-    padding: 0.2rem 0.5rem;
-    margin: 1rem;
-}
-
-.password-generator-modal-details label {
-    font-weight: bolder;
-    color: var(--second_color);
-    font-style: italic;
-}
-
-.password-generator-modal-details button {
+button {
     background-color: transparent;
     border: 1px solid var(--second_color);
     height: 2rem;
@@ -218,11 +256,11 @@ header.modal-header > button:active {
     transition: scale 0.2s ease-in-out;
 }
 
-.password-generator-modal-details button:hover {
+button:hover {
     scale: 1.05;
 }
 
-.password-generator-modal-details button:focus {
+button:focus {
     scale: 1.05;
 }
 
@@ -240,19 +278,6 @@ header.modal-header > button:active {
     margin: 1rem;
 }
 
-.saved-passwords-modal-details button {
-    background-color: transparent;
-    border: 1px solid var(--second_color);
-    height: 2rem;
-    border-radius: 8px;
-    padding: 0rem 1rem;
-    color: var(--second_color);
-    font-weight: bold;
-    font-family: var(--button_font);
-    cursor: pointer;
-    transition: scale 0.2s ease-in-out;
-}
-
 .saved-accounts-modal-details {
     display: flex;
     align-items: center;
@@ -265,23 +290,6 @@ header.modal-header > button:active {
     font-weight: bold;
     color: #ff0000;
     margin: 1rem;
-}
-
-.saved-accounts-modal-details button {
-    background-color: transparent;
-    border: 1px solid var(--second_color);
-    height: 2rem;
-    border-radius: 8px;
-    padding: 0rem 1rem;
-    color: var(--second_color);
-    font-weight: bold;
-    font-family: var(--button_font);
-    cursor: pointer;
-    transition: scale 0.2s ease-in-out;
-}
-
-.saved-accounts-modal-details button:hover {
-    scale: 1.05;
 }
 
 .authenticator-modal-details {
