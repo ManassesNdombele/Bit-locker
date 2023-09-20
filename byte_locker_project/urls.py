@@ -4,5 +4,6 @@ from byte_locker_app.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home_view')
+    path('', home, name='home_view'),
+    path('password-generator/', password_generator, name='passwd_gen')
 ]

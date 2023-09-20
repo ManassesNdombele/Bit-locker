@@ -54,16 +54,29 @@
         </header>
         <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-password-generator-modal">
         <div class="modal-details password-generator-modal-details">
-            <form action="{% url 'home_view' %}" method="post" target="_self">
-                {% csrf_token %}
-                <label for="software-name">Site / Software</label>
-                <input type="text" name="software-name-input" id="software-name">
-                <label for="email-user-name">Email / Usuário</label>
-                <input type="text" name="email-user-name-input" id="email-user-name">
-                <label for="char-length">Quantidade de caracteres</label>
-                <input type="number" name="char-length-input" id="char-length">
-                <button type="submit">Gerar senha</button>
-            </form>
+            {% if not DATA_SENDED %}
+                <form action="{% url 'passwd_gen' %}" method="post" target="_self">
+                    {% csrf_token %}
+                    <label for="software-name">Site / Software</label>
+                    <input type="text" name="software-name-input" id="software-name">
+                    <label for="email-user-name">Email / Usuário</label>
+                    <input type="text" name="email-user-name-input" id="email-user-name">
+                    <label for="char-length">Quantidade de caracteres</label>
+                    <input type="number" name="char-length-input" id="char-length">
+                    <button type="submit">Gerar senha</button>
+                </form>
+            {% else %}
+                <label for="passwd_1">{{ FIRST_PASSWD }}</label>
+                <input type="radio" id="passwd_1">
+                <label for="passwd_2">{{ SECOND_PASSWD }}</label>
+                <input type="radio" id="passwd_2">
+                <label for="passwd_3">{{ THIRD_PASSWD }}</label>
+                <input type="radio" id="passwd_3">
+                <label for="passwd_4">{{ FOURTH_PASSWD }}</label>
+                <input type="radio" id="passwd_4">
+                <label for="passwd_5">{{ FIFTH_PASSWD }}</label>
+                <input type="radio" id="passwd_5">
+            {% endif %}
             <section class="generated-password">
                 <input type="text" id="password-5" class="password-input" placeholder="Senha 5">
                 <button>Copiar</button>
@@ -118,7 +131,7 @@
     </div>
     <div class="help-center modal">
         <header class="modal-header">
-            <h1>Ajuda</h1>
+            <h1>{{ ERROR_DESC }}</h1>
             <button id="close-modal-help-center-btn">X</button>
         </header>
         <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-help-center-modal">
