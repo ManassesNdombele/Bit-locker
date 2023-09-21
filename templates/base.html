@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ByteLocker</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Montserrat:wght@200;300;400;500&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header class="main-header">
+            <div class="logo-side">
+                <img src="{% static 'images/bytelockerlogo.png' %}" alt="ByteLocker">
+                <h1><strong>Byte</strong><strong>Locker</strong></h1>
+            </div>
+            <div class="menu-side">
+                <button><img src="{% static 'images/home.png' %}" alt="Home Button Icon"></button>
+            </div>
+        </header>
+        <main>
+            {% block main_content %}
+            {% endblock %}
+        </main>
+        {% block aside_content %}
+        {% endblock %}
+    </body>
+</html>

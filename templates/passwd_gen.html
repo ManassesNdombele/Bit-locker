@@ -1,0 +1,58 @@
+{% expands 'base.html' %}
+{% block main_content %}
+<header class="modal-header">
+    <h1>Gerador de senhas</h1>
+    <button id="close-modal-password-generator-btn">X</button>
+</header>
+<img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-password-generator-modal">
+<div class="modal-details password-generator-modal-details">
+    {% if not DATA_SENDED %}
+    <form action="{% url 'passwd_gen' %}" method="post" target="_self">
+        {% csrf_token %}
+        <label for="software-id">Site / Software</label>
+        <input type="text" name="software-name-input" id="software-id">
+        <label for="email-id">Email</label>
+        <input type="email" name="email-input" id="email-id">
+        <label for="user-name-id">Usuário</label>
+        <input type="text" name="user-name-input" id="user-name-id">
+        <label for="char-length-id">Quantidade de caracteres</label>
+        <input type="number" name="char-length-input" id="char-length-id">
+        <label for="upper-letters-id">Incluir maiúsculas</label>
+        <input type="checkbox" name="upper-letters-checkbox" id="upper-letters-id" checked>
+        <label for="lower-letters-id">Incluir minúsculas</label>
+        <input type="checkbox" name="lower-letters-checkbox" id="lower-letters-id" checked>
+        <label for="numbers-id">Incluir números / dígitos</label>
+        <input type="checkbox" name="numbers-checkbox" id="numbers-id">
+        <label for="symbols-id">Quais símbolos incluir?</label>
+        <input type="text" name="symbols-c" id="symbols-id" value="!#$%&/_-@">
+        <label for="account-description-id">Descrição da conta</label>
+        <textarea name="account-description-textbox" id="account-description-id" cols="30" rows="10" placeholder="Descreva o objetivo da sua conta neste determinado software / site"></textarea>
+        <button type="submit">Gerar senha</button>
+    </form>
+    {% else %}
+    <form action="{% url 'save_account_datas' %}" method="post">
+        <label for="software-id">Site / Software</label>
+        <input type="text" name="software-name-input" id="software-id" value="{{ SITE_OR_SOFTWARE }}" disabled>
+        {% if EMAIL != '' %}
+        <label for="email-id">Email</label>
+        <input type="email" name="email-input" id="email-id" value="{{ EMAIL }}" disabled>
+        {% endif %}
+        {% if USERNAME != '' %}
+        <label for="user-name-id">Usuário</label>
+        <input type="text" name="user-name-input" id="user-name-id" value="{{ USERNAME }}" disabled>
+        {% endif %}
+        {% if DESCRIPTION != '' %}
+        <label for="account-description-id">Descrição da conta</label>
+        <textarea name="account-description-textbox" id="account-description-id" cols="30" rows="10" placeholder="Descreva o objetivo da sua conta neste determinado software / site" disabled></textarea>
+        {% endif %}
+        <label for="generated-passwd-id">Senha gerada</label>
+        <input type="text" name="generated-passwd-input" id="generated-passwd-id" value="{{ PASSWD }}" disabled>
+        <div class="form-actions">
+            <button type="submit" id="save-account-datas-btn">Salvar</button>
+            <button id="regenerate-passwd-btn">Regenerar</button>
+            <button id="cancel-submit-btn">Cancelar</button>
+        </div>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,165 +1,86 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ByteLocker</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Montserrat:wght@200;300;400;500&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'styles/index.css' %}">
-        <link rel="stylesheet" href="{% static 'styles/media-query-index.css' %}">
-    </head>
-    <body>
-        <header class="main-header">
-            <div class="logo-side">
-                <img src="{% static 'images/bytelockerlogo.png' %}" alt="ByteLocker">
-                <h1><strong>Byte</strong><strong>Locker</strong></h1>
-            </div>
-            <div class="menu-side">
-                <button><img src="{% static 'images/home.png' %}" alt="Home Button Icon"></button>
-            </div>
-        </header>
-        <main>
-            <div class="password-generator option">
-                <img src="{% static 'images/password-generator.png' %}" alt="Password Generator Button Icon">
-                <p>Gerador de senhas</p>
-            </div>
-            <div class="saved-passwords option">
-                <img src="{% static 'images/saved-accounts.png' %}" alt="Saved Passwords Button Icon">
-                <p>Senhas salvas</p>
-            </div>
-            <div class="saved-accounts option">
-                <img src="{% static 'images/verified-account.png' %}" alt="Saved Accounts Button Icon">
-                <p>Contas salvas</p>
-            </div>
-            <div class="authenticator option">
-                <img src="{% static 'images/two-factor-authentication.png' %}" alt="Two Factor Authentication Button Icon">
-                <p>Autenticação</p>
-            </div>
-            <div class="account-configs option">
-                <img src="{% static 'images/account-settings.png' %}" alt="Account Settings Button Icon">
-                <p>Definições da conta</p>
-            </div>
-            <div class="help-center option">
-                <img src="{% static 'images/support.png' %}" alt="Support">
-                <p>Ajuda</p>
-            </div>
-        </main>
-        <div class="password-generator modal">
-            <header class="modal-header">
-                <h1>Gerador de senhas</h1>
-                <button id="close-modal-password-generator-btn">X</button>
-            </header>
-            <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-password-generator-modal">
-            <div class="modal-details password-generator-modal-details">
-                {% if not DATA_SENDED %}
-                <form action="{% url 'passwd_gen' %}" method="post" target="_self">
-                    {% csrf_token %}
-                    <label for="software-id">Site / Software</label>
-                    <input type="text" name="software-name-input" id="software-id">
-                    <label for="email-id">Email</label>
-                    <input type="email" name="email-input" id="email-id">
-                    <label for="user-name-id">Usuário</label>
-                    <input type="text" name="user-name-input" id="user-name-id">
-                    <label for="char-length-id">Quantidade de caracteres</label>
-                    <input type="number" name="char-length-input" id="char-length-id">
-                    <label for="upper-letters-id">Incluir maiúsculas</label>
-                    <input type="checkbox" name="upper-letters-checkbox" id="upper-letters-id" checked>
-                    <label for="lower-letters-id">Incluir minúsculas</label>
-                    <input type="checkbox" name="lower-letters-checkbox" id="lower-letters-id" checked>
-                    <label for="numbers-id">Incluir números / dígitos</label>
-                    <input type="checkbox" name="numbers-checkbox" id="numbers-id">
-                    <label for="symbols-id">Quais símbolos incluir?</label>
-                    <input type="text" name="symbols-c" id="symbols-id" value="!#$%&/_-@">
-                    <label for="account-description-id">Descrição da conta</label>
-                    <textarea name="account-description-textbox" id="account-description-id" cols="30" rows="10" placeholder="Descreva o objetivo da sua conta neste determinado software / site"></textarea>
-                    <button type="submit">Gerar senha</button>
-                </form>
-                {% else %}
-                <form action="{% url 'save_account_datas' %}" method="post">
-                    <label for="software-id">Site / Software</label>
-                    <input type="text" name="software-name-input" id="software-id" value="{{ SITE_OR_SOFTWARE }}" disabled>
-                    {% if EMAIL != '' %}
-                    <label for="email-id">Email</label>
-                    <input type="email" name="email-input" id="email-id" value="{{ EMAIL }}" disabled>
-                    {% endif %}
-                    {% if USERNAME != '' %}
-                    <label for="user-name-id">Usuário</label>
-                    <input type="text" name="user-name-input" id="user-name-id" value="{{ USERNAME }}" disabled>
-                    {% endif %}
-                    {% if DESCRIPTION != '' %}
-                    <label for="account-description-id">Descrição da conta</label>
-                    <textarea name="account-description-textbox" id="account-description-id" cols="30" rows="10" placeholder="Descreva o objetivo da sua conta neste determinado software / site" disabled></textarea>
-                    {% endif %}
-                    <label for="generated-passwd-id">Senha gerada</label>
-                    <input type="text" name="generated-passwd-input" id="generated-passwd-id" value="{{ PASSWD }}" disabled>
-                    <div class="form-actions">
-                        <button type="submit" id="save-account-datas-btn">Salvar</button>
-                        <button id="regenerate-passwd-btn">Regenerar</button>
-                        <button id="cancel-submit-btn">Cancelar</button>
-                    </div>
-                </form>
-                {% endif %}
-            </div>
-        </div>
-        <div class="saved-passwords modal">
-            <header class="modal-header">
-                <h1>Senhas salvas</h1>
-                <button id="close-modal-saved-passwords-btn">X</button>
-            </header>
-            <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-saved-passwords-modal">
-            <div class="modal-details saved-passwords-modal-details">
-                <p>Nenhuma senha salva no sistema!</p>
-                <button>Adicionar nova senha</button>
-            </div>
-        </div>
-        <div class="saved-accounts modal">
-            <header class="modal-header">
-                <h1>Contas salvas</h1>
-                <button id="close-modal-saved-accounts-btn">X</button>
-            </header>
-            <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-saved-accounts-modal">
-            <div class="modal-details saved-accounts-modal-details">
-                <p>Nenhuma conta salva no sistema!</p>
-                <button>Adicionar nova conta</button>
-            </div>
-        </div>
-        <div class="authenticator modal">
-            <header class="modal-header">
-                <h1>Autenticação</h1>
-                <button id="close-modal-authenticator-btn">X</button>
-            </header>
-            <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-authenticator-modal">
-            <div class="modal-details authenticator-modal-details">
-                <p>Não é possível fazer a autenticação em dois passos no momento!</p>
-            </div>
-        </div>
-        <div class="account-configs modal">
-            <header class="modal-header">
-                <h1>Sua conta</h1>
-                <button id="close-modal-account-configs-btn">X</button>
-            </header>
-            <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-account-configs-modal">
-            <div class="modal-details account-configs-modal-details">
-                <img src="{% static 'images/user-icon.png' %}" alt="Foto de perfil do usuário">
-                <p>Manassés Ndombele</p>
-                <p>manassesndombele88@gmail.com</p>
-                <p>Contas salvas: 0</p>
-                <p>Senhas salvas: 0</p>
-            </div>
-        </div>
-        <div class="help-center modal">
-            <header class="modal-header">
-                <h1>{{ ERROR_DESC }}</h1>
-                <button id="close-modal-help-center-btn">X</button>
-            </header>
-            <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-help-center-modal">
-            <div class="modal-details help-center-modal-details">
-                <p>De momento a ajuda não está disponível!</p>
-            </div>
-        </div>
-        <script src="{% static 'js/index-scripts.js' %}"></script>
-    </body>
-</html>
+{% expands 'base.html' %}
+{% block main_content %}
+<div class="password-generator option">
+    <img src="{% static 'images/password-generator.png' %}" alt="Password Generator Button Icon">
+    <p>Gerador de senhas</p>
+</div>
+<div class="saved-passwords option">
+    <img src="{% static 'images/saved-accounts.png' %}" alt="Saved Passwords Button Icon">
+    <p>Senhas salvas</p>
+</div>
+<div class="saved-accounts option">
+    <img src="{% static 'images/verified-account.png' %}" alt="Saved Accounts Button Icon">
+    <p>Contas salvas</p>
+</div>
+<div class="authenticator option">
+    <img src="{% static 'images/two-factor-authentication.png' %}" alt="Two Factor Authentication Button Icon">
+    <p>Autenticação</p>
+</div>
+<div class="account-configs option">
+    <img src="{% static 'images/account-settings.png' %}" alt="Account Settings Button Icon">
+    <p>Definições da conta</p>
+</div>
+<div class="help-center option">
+    <img src="{% static 'images/support.png' %}" alt="Support">
+    <p>Ajuda</p>
+</div>
+{% endblock %}
+{% block aside_content %}
+<div class="saved-passwords modal">
+    <header class="modal-header">
+        <h1>Senhas salvas</h1>
+        <button id="close-modal-saved-passwords-btn">X</button>
+    </header>
+    <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-saved-passwords-modal">
+    <div class="modal-details saved-passwords-modal-details">
+        <p>Nenhuma senha salva no sistema!</p>
+        <button>Adicionar nova senha</button>
+    </div>
+</div>
+<div class="saved-accounts modal">
+    <header class="modal-header">
+        <h1>Contas salvas</h1>
+        <button id="close-modal-saved-accounts-btn">X</button>
+    </header>
+    <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-saved-accounts-modal">
+    <div class="modal-details saved-accounts-modal-details">
+        <p>Nenhuma conta salva no sistema!</p>
+        <button>Adicionar nova conta</button>
+    </div>
+</div>
+<div class="authenticator modal">
+    <header class="modal-header">
+        <h1>Autenticação</h1>
+        <button id="close-modal-authenticator-btn">X</button>
+    </header>
+    <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-authenticator-modal">
+    <div class="modal-details authenticator-modal-details">
+        <p>Não é possível fazer a autenticação em dois passos no momento!</p>
+    </div>
+</div>
+<div class="account-configs modal">
+    <header class="modal-header">
+        <h1>Sua conta</h1>
+        <button id="close-modal-account-configs-btn">X</button>
+    </header>
+    <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-account-configs-modal">
+    <div class="modal-details account-configs-modal-details">
+        <img src="{% static 'images/user-icon.png' %}" alt="Foto de perfil do usuário">
+        <p>Manassés Ndombele</p>
+        <p>manassesndombele88@gmail.com</p>
+        <p>Contas salvas: 0</p>
+        <p>Senhas salvas: 0</p>
+    </div>
+</div>
+<div class="help-center modal">
+    <header class="modal-header">
+        <h1>{{ ERROR_DESC }}</h1>
+        <button id="close-modal-help-center-btn">X</button>
+    </header>
+    <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-help-center-modal">
+    <div class="modal-details help-center-modal-details">
+        <p>De momento a ajuda não está disponível!</p>
+    </div>
+</div>
+<script src="{% static 'js/index-scripts.js' %}"></script>
+{% endblock %}
