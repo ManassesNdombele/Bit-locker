@@ -118,11 +118,10 @@ main > div.option > p {
 
 .modal {
     position: fixed;
-    top: 5%;
+    top: 0%;
     margin: auto;
     background-color: var(--fourth_color);
     width: 100%;
-    border-radius: 10px;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -179,15 +178,31 @@ main > div.option > p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     width: 100%;
-    height: 50%;
-    margin: 2.5rem;
+    height: 100%;
+    margin: 0.3%;
 }
 
 .password-generator-modal-details > form > label {
-    font-weight: bolder;
+    font-weight: lighter;
     color: var(--third_color);
+    font-style: italic;
+    text-align: left;
+    width: 100%;
+}
+
+.password-generator-modal-details .check-options {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    margin: 0.5rem;
+}
+
+.password-generator-modal-details .check-options > label {
+    color: var(--first_color);
     font-style: italic;
 }
 
@@ -199,48 +214,18 @@ main > div.option > p {
     border-radius: 8px;
     padding: 0.2rem 0.5rem;
     margin: 1rem;
+    color: var(--first_color);
 }
 
-.generated-passwords {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: left;
-    width: 100%;
-}
-
-.generated-passwords > h2 {
-    font-size: 1.1rem;
-    color: var(--third_color);
-    font-weight: bold;
-    text-align: center;
-}
-
-.generated-passwords > section {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    flex-direction: row-reverse;
-    margin-top: 0.8rem;
-    width: 100%;
-}
-
-.generated-passwords > section > label {
-    color: var(--third_color);
-    font-weight: bolder;
-    font-size: 0.8rem;
-    margin-left: 0.5rem;
-}
-
-.generated-passwords > .options {
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 1rem;
-}
-
-.password-generator-modal-details > section {
-    margin: 0.5rem;
-    display: none;
+.password-generator-modal-details > form > textarea {
+    background-color: transparent;
+    border: 1px solid var(--second_color);
+    height: 2rem;
+    width: 90%;
+    border-radius: 8px;
+    padding: 0.2rem 0.5rem;
+    margin: 1rem;
+    color: var(--first_color);
 }
 
 button {

@@ -65,16 +65,22 @@
                     <input type="text" name="user-name-input" id="user-name-id">
                     <label for="char-length-id">Quantidade de caracteres</label>
                     <input type="number" name="char-length-input" id="char-length-id">
-                    <label for="upper-letters-id">Incluir maiúsculas</label>
-                    <input type="checkbox" name="upper-letters-checkbox" id="upper-letters-id" checked>
-                    <label for="lower-letters-id">Incluir minúsculas</label>
-                    <input type="checkbox" name="lower-letters-checkbox" id="lower-letters-id" checked>
-                    <label for="numbers-id">Incluir números / dígitos</label>
-                    <input type="checkbox" name="numbers-checkbox" id="numbers-id">
+                    <section class="check-options">
+                        <label for="upper-letters-id">Incluir maiúsculas</label>
+                        <input type="checkbox" name="upper-letters-checkbox" id="upper-letters-id" checked>
+                    </section>
+                    <section class="check-options">
+                        <label for="lower-letters-id">Incluir minúsculas</label>
+                        <input type="checkbox" name="lower-letters-checkbox" id="lower-letters-id" checked>
+                    </section>
+                    <section class="check-options">
+                        <label for="numbers-id">Incluir números / dígitos</label>
+                        <input type="checkbox" name="numbers-checkbox" id="numbers-id" checked>
+                    </section>
                     <label for="symbols-id">Quais símbolos incluir?</label>
                     <input type="text" name="symbols-c" id="symbols-id" value="!#$%&/_-@">
                     <label for="account-description-id">Descrição da conta</label>
-                    <textarea name="account-description-textbox" id="account-description-id" cols="30" rows="10" placeholder="Descreva o objetivo da sua conta neste determinado software / site"></textarea>
+                    <textarea name="account-description-textbox" id="account-description-id" cols="30" rows="1" placeholder="Descreva o objetivo da sua conta neste determinado software / site"></textarea>
                     <button type="submit">Gerar senha</button>
                 </form>
                 {% else %}
