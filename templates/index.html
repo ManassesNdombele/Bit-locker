@@ -1,4 +1,9 @@
-{% expands 'base.html' %}
+{% extends 'base.html' %}
+{% load static %}
+{% block more_links %}
+<link rel="stylesheet" href="{% static 'styles/index.css' %}">
+<script src="{% static 'js/index-scripts.js' %}"></script>
+{% endblock %}
 {% block main_content %}
 <div class="password-generator option">
     <img src="{% static 'images/password-generator.png' %}" alt="Password Generator Button Icon">
@@ -82,5 +87,4 @@
         <p>De momento a ajuda não está disponível!</p>
     </div>
 </div>
-<script src="{% static 'js/index-scripts.js' %}"></script>
 {% endblock %}
