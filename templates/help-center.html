@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main_content %}
+<header class="modal-header">
+    <h1>{{ ERROR_DESC }}</h1>
+    <button id="close-modal-help-center-btn">X</button>
+</header>
+<img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-help-center-modal">
+<div class="modal-details help-center-modal-details">
+    <p>De momento a ajuda não está disponível!</p>
+</div>
+{% endblock %}

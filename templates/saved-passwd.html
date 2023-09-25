@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main_content %}
+<div class="saved-passwords modal">
+    <header class="modal-header">
+        <h1>Senhas salvas</h1>
+        <button id="close-modal-saved-passwords-btn">X</button>
+    </header>
+    <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-saved-passwords-modal">
+    <div class="modal-details saved-passwords-modal-details">
+        <p>Nenhuma senha salva no sistema!</p>
+        <button>Adicionar nova senha</button>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main_content %}
+<header class="modal-header">
+    <h1>Contas salvas</h1>
+    <button id="close-modal-saved-accounts-btn">X</button>
+</header>
+<img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-saved-accounts-modal">
+<div class="modal-details saved-accounts-modal-details">
+    <p>Nenhuma conta salva no sistema!</p>
+    <button>Adicionar nova conta</button>
+</div>
+{% endblock %}

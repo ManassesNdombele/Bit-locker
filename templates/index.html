@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block more_links %}
-<link rel="stylesheet" href="{% static 'styles/index.css' %}">
+<link rel="stylesheet" href="{% static 'styles/index-styles.css' %}">
 <script src="{% static 'js/index-scripts.js' %}"></script>
 {% endblock %}
 {% block main_content %}
@@ -28,63 +28,5 @@
 <div class="help-center option">
     <img src="{% static 'images/support.png' %}" alt="Support">
     <p>Ajuda</p>
-</div>
-{% endblock %}
-{% block aside_content %}
-<div class="saved-passwords modal">
-    <header class="modal-header">
-        <h1>Senhas salvas</h1>
-        <button id="close-modal-saved-passwords-btn">X</button>
-    </header>
-    <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-saved-passwords-modal">
-    <div class="modal-details saved-passwords-modal-details">
-        <p>Nenhuma senha salva no sistema!</p>
-        <button>Adicionar nova senha</button>
-    </div>
-</div>
-<div class="saved-accounts modal">
-    <header class="modal-header">
-        <h1>Contas salvas</h1>
-        <button id="close-modal-saved-accounts-btn">X</button>
-    </header>
-    <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-saved-accounts-modal">
-    <div class="modal-details saved-accounts-modal-details">
-        <p>Nenhuma conta salva no sistema!</p>
-        <button>Adicionar nova conta</button>
-    </div>
-</div>
-<div class="authenticator modal">
-    <header class="modal-header">
-        <h1>Autenticação</h1>
-        <button id="close-modal-authenticator-btn">X</button>
-    </header>
-    <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-authenticator-modal">
-    <div class="modal-details authenticator-modal-details">
-        <p>Não é possível fazer a autenticação em dois passos no momento!</p>
-    </div>
-</div>
-<div class="account-configs modal">
-    <header class="modal-header">
-        <h1>Sua conta</h1>
-        <button id="close-modal-account-configs-btn">X</button>
-    </header>
-    <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-account-configs-modal">
-    <div class="modal-details account-configs-modal-details">
-        <img src="{% static 'images/user-icon.png' %}" alt="Foto de perfil do usuário">
-        <p>Manassés Ndombele</p>
-        <p>manassesndombele88@gmail.com</p>
-        <p>Contas salvas: 0</p>
-        <p>Senhas salvas: 0</p>
-    </div>
-</div>
-<div class="help-center modal">
-    <header class="modal-header">
-        <h1>{{ ERROR_DESC }}</h1>
-        <button id="close-modal-help-center-btn">X</button>
-    </header>
-    <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-help-center-modal">
-    <div class="modal-details help-center-modal-details">
-        <p>De momento a ajuda não está disponível!</p>
-    </div>
 </div>
 {% endblock %}
