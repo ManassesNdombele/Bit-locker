@@ -9,7 +9,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Montserrat:wght@200;300;400;500&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet">
-        {% block more_links %}
+        {% block style_links %}
         {% endblock %}
     </head>
     <body>
@@ -19,7 +19,7 @@
                 <h1><strong>Byte</strong><strong>Locker</strong></h1>
             </div>
             <div class="menu-side">
-                <button><img src="{% static 'images/home.png' %}" alt="Home Button Icon"></button>
+                <button><img src="{% static 'images/home.png' %}" alt="Home Button Icon" id="home-btn"></button>
             </div>
         </header>
         <main>
@@ -31,4 +31,6 @@
         <p>Copyright &copy; todos os direitos reservados</p>
         <p>Developer <a href="github.com" target="_self">@Manassés_Ndombele</a></p>
     </footer>
+    {% block js_links %}
+    {% endblock %}
 </html>

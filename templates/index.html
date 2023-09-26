@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block more_links %}
+{% block style_links %}
 <link rel="stylesheet" href="{% static 'styles/index-styles.css' %}">
-<script src="{% static 'js/index-scripts.js' %}"></script>
 {% endblock %}
 {% block main_content %}
 <div class="password-generator option">
@@ -29,4 +28,7 @@
     <img src="{% static 'images/support.png' %}" alt="Support">
     <p>Ajuda</p>
 </div>
+{% endblock %}
+{% block js_links %}
+<script src="{% static 'js/index-scripts.js' %}"></script>
 {% endblock %}
