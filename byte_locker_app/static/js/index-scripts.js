@@ -31,5 +31,5 @@ option6.addEventListener('click', () => {
 })
 
 home_btn.addEventListener('click', () => {
-    location.href = ''
+    history.back()
 })
