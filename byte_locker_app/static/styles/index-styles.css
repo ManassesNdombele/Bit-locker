@@ -8,7 +8,7 @@
     --button_font: 'Raleway', sans-serif;
 }
 
-main > div.option {
+main > .option {
     width: 20rem;
     background-color: var(--second_color);
     display: flex;
@@ -21,16 +21,16 @@ main > div.option {
     box-shadow: 3px 5px 15px var(--second_color);
 }
 
-main > div.option:active {
+main > .option:active {
     box-shadow: 3px 5px 15px var(--third_color);
 }
 
-main > div.option > img {
+main > .option > img {
     width: 40%;
     margin: 0.6rem;
 }
 
-main > div.option > p {
+main > .option > p {
     font-family: var(--title_font);
     font-weight: bold;
     color: var(--first_color);
@@ -83,91 +83,6 @@ main > div.option > p {
 
 .modal > img {
     display: none;
-}
-
-.password-generator-modal-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1%;
-    width: 100%;
-    height: 50%;
-}
-
-.password-generator-modal-details form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: left;
-    width: 100%;
-    height: 100%;
-    margin: 0.3%;
-}
-
-.password-generator-modal-details > form > label {
-    font-weight: lighter;
-    color: var(--third_color);
-    font-style: italic;
-    text-align: left;
-    width: 100%;
-}
-
-.password-generator-modal-details .check-options {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: left;
-    width: 100%;
-    margin: 0.5rem;
-}
-
-.password-generator-modal-details .check-options > label {
-    color: var(--first_color);
-    font-style: italic;
-}
-
-.password-generator-modal-details > form > input {
-    background-color: transparent;
-    border: 1px solid var(--second_color);
-    height: 2rem;
-    width: 90%;
-    border-radius: 8px;
-    padding: 0.2rem 0.5rem;
-    margin: 1rem;
-    color: var(--first_color);
-}
-
-.password-generator-modal-details > form > textarea {
-    background-color: transparent;
-    border: 1px solid var(--second_color);
-    height: 2rem;
-    width: 90%;
-    border-radius: 8px;
-    padding: 0.2rem 0.5rem;
-    margin: 1rem;
-    color: var(--first_color);
-}
-
-button {
-    background-color: transparent;
-    border: 1px solid var(--second_color);
-    height: 2rem;
-    border-radius: 8px;
-    padding: 0rem 1rem;
-    color: var(--second_color);
-    font-weight: bold;
-    font-family: var(--button_font);
-    cursor: pointer;
-    transition: scale 0.2s ease-in-out;
-}
-
-button:hover {
-    scale: 1.05;
-}
-
-button:focus {
-    scale: 1.05;
 }
 
 .saved-passwords-modal-details {

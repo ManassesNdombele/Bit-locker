@@ -90,6 +90,27 @@ main {
     padding-top: 5.5rem;
 }
 
+button {
+    background-color: transparent;
+    border: 1px solid var(--second_color);
+    height: 2rem;
+    border-radius: 8px;
+    padding: 0rem 1rem;
+    color: var(--second_color);
+    font-weight: bold;
+    font-family: var(--button_font);
+    cursor: pointer;
+    transition: scale 0.2s ease-in-out;
+}
+
+button:hover {
+    scale: 1.05;
+}
+
+button:focus {
+    scale: 1.05;
+}
+
 footer {
     width: 100%;
     display: flex;
@@ -98,7 +119,8 @@ footer {
     flex-direction: column;
     background-color: var(--third_color);
     padding: 2%;
-    font-variant-caps: small-caps;
+    position: fixed;
+    bottom: 0%;
 }
 
 footer > p:first-child {
@@ -109,8 +131,10 @@ footer > p {
     font-weight: bolder;
     text-align: center;
     color: var(--fourth_color);
+    font-variant-caps: small-caps;
 }
 
 footer > p > a {
+    font-weight: lighter;
     color: var(--first_color);
 }

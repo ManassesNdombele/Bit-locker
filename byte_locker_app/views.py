@@ -1,14 +1,10 @@
 from django.shortcuts import render
 
 def home(request):
-    response = {
-        'DATA_SENDED': False
-    }
-
     return render(request, 'index.html')
 
 def password_generator(request):
-    return render(request, 'passwd_gen.html')
+    return render(request, 'passwd-gen.html')
 
 def account_configs(request):
     return render(request, 'account-configs.html')

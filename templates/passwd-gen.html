@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block style_links %}
+<link rel="stylesheet" href="{% static 'styles/passwd-gen-styles.css' %}">
+{% endblock %}
 {% block main_content %}
 <header class="modal-header">
     <h1>Gerador de senhas</h1>
-    <button id="close-modal-password-generator-btn">X</button>
 </header>
-<img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-password-generator-modal">
+<img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-password-generator">
 <div class="modal-details password-generator-modal-details">
     {% if not DATA_SENDED %}
     <form action="{% url 'passwd_gen' %}" method="post" target="_self">
@@ -24,11 +26,9 @@
         <input type="checkbox" name="lower-letters-checkbox" id="lower-letters-id" checked>
         <label for="numbers-id">Incluir números / dígitos</label>
         <input type="checkbox" name="numbers-checkbox" id="numbers-id">
-        <label for="symbols-id">Quais símbolos incluir?</label>
-        <input type="text" name="symbols-c" id="symbols-id" value="!#$%&/_-@">
         <label for="account-description-id">Descrição da conta</label>
         <textarea name="account-description-textbox" id="account-description-id" cols="30" rows="10" placeholder="Descreva o objetivo da sua conta neste determinado software / site"></textarea>
-        <button type="submit">Gerar senha</button>
+        <button type="submit" class="system-btn">Gerar senha</button>
     </form>
     {% else %}
     <form action="{% url 'save_account_datas' %}" method="post">
@@ -49,9 +49,9 @@
         <label for="generated-passwd-id">Senha gerada</label>
         <input type="text" name="generated-passwd-input" id="generated-passwd-id" value="{{ PASSWD }}" disabled>
         <div class="form-actions">
-            <button type="submit" id="save-account-datas-btn">Salvar</button>
-            <button id="regenerate-passwd-btn">Regenerar</button>
-            <button id="cancel-submit-btn">Cancelar</button>
+            <button type="submit" id="save-account-datas-btn" class="system-btn">Salvar</button>
+            <button id="regenerate-passwd-btn" class="system-btn">Regenerar</button>
+            <button id="cancel-submit-btn" class="system-btn">Cancelar</button>
         </div>
     </form>
     {% endif %}
