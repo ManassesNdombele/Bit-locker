@@ -13,13 +13,13 @@
     <form action="{% url 'passwd_gen' %}" method="post" target="_self">
         {% csrf_token %}
         <label for="software-id">Site / Software</label>
-        <input type="text" name="software-name-input" id="software-id">
+        <input type="text" name="software-name-input" id="software-id" required maxlength="40">
         <label for="email-id">Email</label>
         <input type="email" name="email-input" id="email-id">
         <label for="user-name-id">Usuário</label>
         <input type="text" name="user-name-input" id="user-name-id">
         <label for="char-length-id">Quantidade de caracteres</label>
-        <input type="number" name="char-length-input" id="char-length-id">
+        <input type="number" name="char-length-input" id="char-length-id" required>
         <section class="check-options">
             <input type="checkbox" name="upper-letters-checkbox" id="upper-letters-id" checked>
             <label for="upper-letters-id">Incluir maiúsculas</label>
@@ -33,7 +33,7 @@
             <label for="numbers-id">Incluir números / dígitos</label>
         </section>
         <label for="account-description-id" class="last-form-label">Descrição da conta</label>
-        <textarea name="account-description-textbox" id="account-description-id" cols="30" rows="20" placeholder="Descreva o objetivo da sua conta neste software / site"></textarea>
+        <textarea name="account-description-textbox" id="account-description-id" cols="30" rows="20" placeholder="Descreva o objetivo da sua conta neste software / site" maxlength="150"></textarea>
         <button type="submit" class="system-btn">Gerar senha</button>
     </form>
     {% else %}
