@@ -4,11 +4,11 @@
 <link rel="stylesheet" href="{% static 'styles/passwd-gen-styles.css' %}">
 {% endblock %}
 {% block main_content %}
-<header class="modal-header">
+<header class="self-header">
     <h1>Gerador de senhas</h1>
 </header>
 <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-password-generator">
-<div class="modal-details password-generator-modal-details">
+<div class="password-generator-details">
     {% if not DATA_SENDED %}
     <form action="{% url 'passwd_gen' %}" method="post" target="_self">
         {% csrf_token %}
@@ -20,14 +20,20 @@
         <input type="text" name="user-name-input" id="user-name-id">
         <label for="char-length-id">Quantidade de caracteres</label>
         <input type="number" name="char-length-input" id="char-length-id">
-        <label for="upper-letters-id">Incluir maiúsculas</label>
-        <input type="checkbox" name="upper-letters-checkbox" id="upper-letters-id" checked>
-        <label for="lower-letters-id">Incluir minúsculas</label>
-        <input type="checkbox" name="lower-letters-checkbox" id="lower-letters-id" checked>
-        <label for="numbers-id">Incluir números / dígitos</label>
-        <input type="checkbox" name="numbers-checkbox" id="numbers-id">
-        <label for="account-description-id">Descrição da conta</label>
-        <textarea name="account-description-textbox" id="account-description-id" cols="30" rows="10" placeholder="Descreva o objetivo da sua conta neste determinado software / site"></textarea>
+        <section class="check-options">
+            <input type="checkbox" name="upper-letters-checkbox" id="upper-letters-id" checked>
+            <label for="upper-letters-id">Incluir maiúsculas</label>
+        </section>
+        <section class="check-options">
+            <input type="checkbox" name="lower-letters-checkbox" id="lower-letters-id" checked>
+            <label for="lower-letters-id">Incluir minúsculas</label>
+        </section>
+        <section class="check-options">
+            <input type="checkbox" name="numbers-checkbox" id="numbers-id" checked>
+            <label for="numbers-id">Incluir números / dígitos</label>
+        </section>
+        <label for="account-description-id" class="last-form-label">Descrição da conta</label>
+        <textarea name="account-description-textbox" id="account-description-id" cols="30" rows="20" placeholder="Descreva o objetivo da sua conta neste software / site"></textarea>
         <button type="submit" class="system-btn">Gerar senha</button>
     </form>
     {% else %}

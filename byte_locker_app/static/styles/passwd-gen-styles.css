@@ -8,11 +8,12 @@
     --button_font: 'Raleway', sans-serif;
 }
 
-.modal-header {
+.self-header {
     width: 100%;
+    margin-bottom: 1rem;
 }
 
-.modal-header h1 {
+.self-header h1 {
     text-align: center;
     color: var(--second_color);
     font-size: 1.4em;
@@ -26,7 +27,7 @@
     display: none;
 }
 
-.password-generator-modal-details {
+.password-generator-details {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,39 +37,47 @@
     height: 50%;
 }
 
-.password-generator-modal-details form {
+.password-generator-details > form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: left;
+    justify-content: center;
     width: 100%;
     height: 100%;
     margin: 0.3%;
 }
 
-.password-generator-modal-details > form > label {
+.password-generator-details > form > label {
     font-weight: lighter;
     color: var(--third_color);
     font-style: italic;
     text-align: left;
     width: 100%;
+    padding-left: 1rem;
 }
 
-.password-generator-modal-details .check-options {
+.password-generator-details > form > .check-options {
     display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
+    align-items: left;
     justify-content: left;
     width: 100%;
     margin: 0.5rem;
+    padding-left: 1rem;
 }
 
-.password-generator-modal-details .check-options > label {
-    color: var(--first_color);
+.password-generator-details > form > .last-form-label {
+    margin-top: 1rem;
+}
+
+.password-generator-details > form > .check-options > label {
+    color: var(--third_color);
     font-style: italic;
+    font-weight: lighter;
+    text-align: left;
+    padding-left: 0.7rem;
 }
 
-.password-generator-modal-details > form > input {
+.password-generator-details > form > input {
     background-color: transparent;
     border: 1px solid var(--second_color);
     height: 2rem;
@@ -76,16 +85,21 @@
     border-radius: 8px;
     padding: 0.2rem 0.5rem;
     margin: 1rem;
-    color: var(--first_color);
+    color: var(--third_color);
 }
 
-.password-generator-modal-details > form > textarea {
+.password-generator-details > form > textarea {
     background-color: transparent;
     border: 1px solid var(--second_color);
-    height: 2rem;
+    height: 250px;
     width: 90%;
     border-radius: 8px;
     padding: 0.2rem 0.5rem;
     margin: 1rem;
     color: var(--first_color);
+}
+
+.password-generator-details > form > textarea::placeholder {
+    font-size: 1.1em;
+    font-style: italic;
 }
