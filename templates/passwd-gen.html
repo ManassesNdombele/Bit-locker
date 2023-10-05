@@ -9,7 +9,7 @@
 </header>
 <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-password-generator">
 <div class="password-generator-details">
-{% if ERROR == True %}
+{% if ERROR %}
 <section class="error-message">
     <p>{{ MESSAGE }}</p>
     <button>Ok</button>
@@ -39,20 +39,20 @@
         <label for="numbers-id">Incluir números / dígitos</label>
     </section>
     <label for="account-description-id" class="last-form-label">Descrição da conta</label>
-    <textarea name="account-description-textbox" id="account-description-id" cols="30" rows="20" placeholder="Descreva o objetivo da sua conta neste software / site" maxlength="150"></textarea>
+    <textarea name="account-description-textbox" id="account-description-id" cols="30" rows="20" placeholder="Descreva o objetivo da sua conta neste software / site" maxlength="300"></textarea>
     <button type="submit" class="system-btn">Gerar senha</button>
 </form>
 {% else %}
-<form action="{% url 'save_account_datas' %}" method="post">
+<form action="{% url 'passwd_gen' %}" method="post">
     <label for="software-id">Site / Software</label>
-    <input type="text" name="software-name-input" id="software-id" value="{{ SITE_OR_SOFTWARE }}" disabled>
+    <input type="text" name="software-name-input" id="software-id" value="{{ PROGRAM_NAME }}" disabled>
     {% if EMAIL != '' %}
     <label for="email-id">Email</label>
     <input type="email" name="email-input" id="email-id" value="{{ EMAIL }}" disabled>
     {% endif %}
-    {% if USERNAME != '' %}
+    {% if USER_NAME != '' %}
     <label for="user-name-id">Usuário</label>
-    <input type="text" name="user-name-input" id="user-name-id" value="{{ USERNAME }}" disabled>
+    <input type="text" name="user-name-input" id="user-name-id" value="{{ USER_NAME }}" disabled>
     {% endif %}
     {% if DESCRIPTION != '' %}
     <label for="account-description-id">Descrição da conta</label>

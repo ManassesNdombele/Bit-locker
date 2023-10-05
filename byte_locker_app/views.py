@@ -41,15 +41,14 @@ def generate_password(request):
             numbers_chars = ''
             if str(upper_letters_check) == 'on':
                 upper_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-            
+
             if str(lower_letters_check) == 'on':
                 lower_letters = 'abcdefghijklmnopqrstuvwxyz'
-            
+
             if str(numbers_check) == 'on':
                 numbers_chars = '0123456789'
 
             base_chars = f'{upper_letters}{lower_letters}{numbers_chars}!@#$%&*-'
             passwd_char_list = choices(base_chars, k=int(char_length))
             password = ''.join(passwd_char_list)
-            print(password)
-            return render(request, 'index.html')
+            return render(request, 'passwd-gen.html', {'DATA_SENDED': True, 'ERROR': False, 'MESSAGE': '', 'PROGRAM_NAME': program_name, 'EMAIL': email, 'USER_NAME': user_name, 'DESCRIPTION': account_description, 'PASSWORD': password})
