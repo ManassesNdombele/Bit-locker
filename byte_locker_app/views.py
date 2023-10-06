@@ -52,3 +52,6 @@ def generate_password(request):
             passwd_char_list = choices(base_chars, k=int(char_length))
             password = ''.join(passwd_char_list)
             return render(request, 'passwd-gen.html', {'DATA_SENDED': True, 'ERROR': False, 'MESSAGE': '', 'PROGRAM_NAME': program_name, 'EMAIL': email, 'USER_NAME': user_name, 'DESCRIPTION': account_description, 'PASSWORD': password})
+
+def save_account_datas(request):
+    pass
