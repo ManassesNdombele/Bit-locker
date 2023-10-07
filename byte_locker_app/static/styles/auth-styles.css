@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+:root {
+    --first_color: #041b2d;
+    --second_color: #0999e0;
+    --third_color: #184b81;
+    --fourth_color: #fff;
+    --title_font: 'Inclusive Sans', sans-serif;
+    --body_font: 'Montserrat', sans-serif;
+    --button_font: 'Raleway', sans-serif;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body_font);
+    scroll-behavior: smooth;
+    background-color: var(--third_color);
+    background-image: url('../images/bg-img-auth-pages.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right top;
+    height: 130vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+#site-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#site-description h1 {
+    text-align: center;
+    color: var(--fourth_color);
+    font-size: 1.8em;
+    padding: 0.7rem;
+    text-shadow: 6px 6px 8px var(--first_color);
+}
+
+#site-description p {
+    text-align: left;
+    color: var(--fourth_color);
+    font-size: 1.1em;
+    padding: 0.8rem;
+    text-shadow: 6px 6px 8px var(--first_color);
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem;
+    width: 100%;
+}
+
+#login-form p {
+    text-align: left;
+    color: var(--fourth_color);
+    font-weight: bold;
+    font-size: 1.6em;
+    text-shadow: 6px 6px 8px var(--first_color);
+    margin: 0.5rem 0rem;
+    width: 100%;
+}
+
+#login-form fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    padding: 0.5rem;
+    border: 2px ridge var(--first_color);
+    border-radius: 10px;
+    width: 100%;
+}
+
+#login-form label {
+    text-align: left;
+    color: var(--fourth_color);
+    font-size: 1.4em;
+    text-shadow: 6px 6px 8px var(--first_color);
+    margin: 0.5rem 0rem;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+#login-form input {
+    height: 2.5rem;
+    padding: 0.7rem;
+    margin: 0.5rem 0rem;
+    border-radius: 10px;
+    border: 1px solid var(--first_color);
+    background-color: var(--third_color);
+    font-family: var(--body_font);
+    color: var(--fourth_color);
+}
+
+#login-form input::placeholder {
+    font-family: var(--body_font);
+    font-style: italic;
+    color: var(--fourth_color);
+}
+
+#login-form button {
+    width: 60%;
+    height: 2.5rem;
+    border-radius: 10px;
+    margin: 10px;
+    border-width: 0px;
+    background-color: var(--second_color);
+    color: var(--third_color);
+    font-weight: bold;
+    font-family: var(--button_font);
+    font-size: 1em;
+    box-shadow: 4px 4px 6px var(--first_color);
+}

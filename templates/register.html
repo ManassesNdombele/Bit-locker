@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteLocker</title>
+    <link rel="stylesheet" href="../byte_locker_app/static/styles/auth-styles.css">
+</head>
+<body>
+    <main>
+        <div id="site-description">
+            <h1>ByteLocker</h1>
+            <p>Seja bem vindo ao <strong>ByteLocker</strong> um site desenvolvido para que para que você possa gerencias suas contas nas plataformas em que te cadastras, gerar senhas fortes e fazer autenticação em 2 passos e muito mais.</p>
+        </div>
+        <form id="login-form">
+            <p>Registro</p>
+            <fieldset>
+                <label for="username-input">Usuário</label>
+                <input type="text" name="username-name" id="username-input" placeholder="Digite o seu nome" required>
+                <label for="email-input">Email</label>
+                <input type="email" name="email-name" id="email-input" placeholder="Digite o seu email" required>
+                <label for="password-input">Senha</label>
+                <input type="password" name="password-name" id="password-input" placeholder="Digite uma senha forte" required>
+                <label for="password-confirm-input">Confirme a senha</label>
+                <input type="password" name="password-confirm-name" id="password-confirm-input" placeholder="Coloque a mesma senha do campo de senha" required>
+            </fieldset>
+            <button type="submit">Entrar</button>
+            <button>Registrar-se</button>
+        </form>
+    </main>
+</body>
+</html>
