@@ -1,9 +1,12 @@
 from django.urls import path, include
+from django.contrib import admin 
 from byte_locker_app.views import *
 
 urlpatterns = [
-    path('', home, name='home_view'),
-    path('password-generator/', include('byte_locker_app.urls')),
+    path('admin/', admin.site.urls),
+    path('', home, name='home'),
+    path('auth/', include('byte_locker_app.urls.auth_urls')),
+    path('password-generator/', include('byte_locker_app.urls.passwd_gen_urls')),
     path('account-configs/', account_configs, name='account_configs'),
     path('authentication/', authentication, name='authentication'),
     path('help-center/', help_center, name='help_center'),

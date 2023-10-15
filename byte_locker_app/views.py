@@ -1,8 +1,53 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as auth_login
+from django.contrib.auth.decorators import login_required
 from random import choices
 
+@login_required(login_url='/auth/login/')
 def home(request):
     return render(request, 'index.html')
+
+def login(request):
+    if request.method == 'GET':
+        return render(request, 'login.html', {'DATA_SENDED': False, 'ERROR': False, 'MESSAGE': None})
+
+    elif request.method == 'POST':
+        username = request.POST.get('username-name')
+        password = request.POST.get('password-name')
+        user = authenticate(username=username, password=password)
+        if user:
+            auth_login(request, user)
+            return redirect('home')
+
+        else:
+            return render(request, 'login.html', {'DATA_SENDED': True, 'ERROR': True, 'MESSAGE': 'Nome de usuário ou senha inválidos, tente novamente', 'Senha': password, 'PASSWORD': password})
+
+def register(request):
+    if request.method == 'GET':
+        return render(request, 'register.html', {'DATA_SENDED': False, 'ERROR': False, 'MESSAGE': None})
+    
+    elif request.method == 'POST':
+        username = request.POST.get('username-name')
+        email = request.POST.get('email-name')
+        password = request.POST.get('password-name')
+        password_confirmation = request.POST.get('password-confirm-name')
+        username_datas = User.objects.filter(username=username).first()
+        email_datas = User.objects.filter(email=email).first()
+        if username_datas:
+            return render(request, 'register.html', {'DATA_SENDED': True, 'ERROR': True, 'MESSAGE': 'Use outro nome de usuário porque esse nome já foi cadastrado no sistema.', 'USERNAME': username, 'EMAIL': email, 'PASSWORD': password, 'PASSWORD_CONFIRMATION': password_confirmation})
+
+        elif email_datas:
+            return render(request, 'register.html', {'DATA_SENDED': True, 'ERROR': True, 'MESSAGE': 'Este email já foi cadastrado no sistema tente outro email.', 'USERNAME': username, 'EMAIL': email, 'PASSWORD': password, 'PASSWORD_CONFIRMATION': password_confirmation})
+    
+        elif password != password_confirmation:
+            return render(request, 'register.html', {'DATA_SENDED': True, 'ERROR': False, 'MESSAGE': 'A sua senha deve ser igual ao campo de confirmação de senha.', 'USERNAME': username, 'EMAIL': email, 'PASSWORD': password, 'PASSWORD_CONFIRMATION': password_confirmation})
+
+        else:
+            user = User.objects.create_user(username=username, email=email, password=password)
+            user.save()
+            return redirect('login')
 
 def password_generator(request):
     return render(request, 'passwd-gen.html', {'DATA_SENDED': False, 'ERROR': False, 'MESSAGE': ''})
