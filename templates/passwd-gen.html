@@ -44,28 +44,28 @@
 </form>
 {% else %}
 <form action="{% url 'save_account_datas' %}" method="post">
+    {% csrf_token %}
     <label for="software-id">Site / Software</label>
-    <input type="text" name="software-name-input" id="software-id" value="{{ PROGRAM_NAME }}" disabled>
+    <input type="text" name="software-name-input" id="software-id" value="{{ PROGRAM_NAME }}" readonly>
     {% if EMAIL != '' %}
     <label for="email-id">Email</label>
-    <input type="email" name="email-input" id="email-id" value="{{ EMAIL }}" disabled>
+    <input type="email" name="email-input" id="email-id" value="{{ EMAIL }}" readonly>
     {% endif %}
     {% if USER_NAME != '' %}
     <label for="user-name-id">Usuário</label>
-    <input type="text" name="user-name-input" id="user-name-id" value="{{ USER_NAME }}" disabled>
+    <input type="text" name="user-name-input" id="user-name-id" value="{{ USER_NAME }}" readonly>
     {% endif %}
     {% if DESCRIPTION != '' %}
     <label for="account-description-id">Descrição da conta</label>
-    <textarea name="account-description-textbox" id="account-description-id" disabled>{{ DESCRIPTION }}</textarea>
+    <textarea name="account-description-textbox" id="account-description-id" readonly>{{ DESCRIPTION }}</textarea>
     {% endif %}
     <label for="generated-passwd-id">Senha gerada</label>
-    <input type="text" name="generated-passwd-input" id="generated-passwd-id" value="{{ PASSWORD }}" disabled>
-    <div class="form-actions">
-        <button type="submit" id="save-account-datas-btn" class="system-btn">Salvar</button>
-        <button id="regenerate-passwd-btn" class="system-btn">Regenerar</button>
-        <button id="cancel-submit-btn" class="system-btn">Cancelar</button>
-    </div>
+    <input type="text" name="generated-passwd-input" id="generated-passwd-id" value="{{ PASSWORD }}" readonly>
+    <button type="submit" id="save-account-datas-btn" class="system-btn">Salvar</button>
 </form>
+<button id="regenerate-passwd-btn" class="system-btn">Regenerar</button>
+<button id="cancel-submit-btn" class="system-btn">Cancelar</button>
 {% endif %}
 </div>
 {% endblock %}
+<script src="{% static 'js/passwd-gen.js' %}"></script>

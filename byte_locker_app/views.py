@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.decorators import login_required
 from random import choices
+from byte_locker_app.models import Accounts
 
 @login_required(login_url='/auth/login/')
 def home(request):
@@ -49,24 +50,31 @@ def register(request):
             user.save()
             return redirect('login')
 
+@login_required(login_url='/auth/login/')
 def password_generator(request):
-    return render(request, 'passwd-gen.html', {'DATA_SENDED': False, 'ERROR': False, 'MESSAGE': ''})
+    return render(request, 'passwd-gen.html', {'DATA_SENDED': False, 'ERROR': False, 'MESSAGE': None})
 
+@login_required(login_url='/auth/login/')
 def account_configs(request):
     return render(request, 'account-configs.html')
 
+@login_required(login_url='/auth/login/')
 def authentication(request):
     return render(request, 'authentication.html')
 
+@login_required(login_url='/auth/login/')
 def help_center(request):
     return render(request, 'help-center.html')
 
+@login_required(login_url='/auth/login/')
 def saved_accounts(request):
     return render(request, 'saved-accounts.html')
 
+@login_required(login_url='/auth/login/')
 def saved_passwords(request):
     return render(request, 'saved-passwd.html')
 
+@login_required(login_url='/auth/login/')
 def generate_password(request):
     if request.method == 'POST':
         program_name = request.POST.get('software-name-input')
@@ -96,7 +104,29 @@ def generate_password(request):
             base_chars = f'{upper_letters}{lower_letters}{numbers_chars}!@#$%&*-'
             passwd_char_list = choices(base_chars, k=int(char_length))
             password = ''.join(passwd_char_list)
-            return render(request, 'passwd-gen.html', {'DATA_SENDED': True, 'ERROR': False, 'MESSAGE': '', 'PROGRAM_NAME': program_name, 'EMAIL': email, 'USER_NAME': user_name, 'DESCRIPTION': account_description, 'PASSWORD': password})
+            return render(request, 'passwd-gen.html', {'DATA_SENDED': True, 'ERROR': False, 'MESSAGE': None, 'PROGRAM_NAME': program_name, 'EMAIL': email, 'USER_NAME': user_name, 'DESCRIPTION': account_description, 'PASSWORD': password})
 
+@login_required(login_url='/auth/login/')
 def save_account_datas(request):
-    pass
+    if request.method == 'POST':
+        program_name = request.POST.get('software-name-input')
+        email = request.POST.get('email-input')
+        user_name = request.POST.get('user-name-input')
+        account_description = request.POST.get('account-description-textbox')
+        account_password = request.POST.get('generated-passwd-input')
+        user_id = request.user
+        new_account = Accounts(program_name=program_name, email=email, username=user_name, description=account_description, password=account_password, user=user_id)
+        new_account.save()
+        return redirect('generation_sucess')
+
+@login_required(login_url='/auth/login/')
+def regenerate_password(request):
+    return redirect('gen_passwd')
+
+@login_required(login_url='/auth/login/')
+def cancel_generation(request):
+    return redirect('passwd_gen')
+
+@login_required(login_url='/auth/login/')
+def generation_sucess(request):
+    return render(request, 'generation-sucess.html')

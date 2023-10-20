@@ -7,7 +7,7 @@ var option5 = document.getElementsByClassName('option')[4]
 var option6 = document.getElementsByClassName('option')[5]
 
 option1.addEventListener('click', () => {
-    location.href = 'password-generator/form'
+    location.href = 'password-generator/form/'
 })
 
 option2.addEventListener('click', () => {
@@ -31,5 +31,5 @@ option6.addEventListener('click', () => {
 })
 
 home_btn.addEventListener('click', () => {
-    history.back()
+    location.href = '/'
 })
