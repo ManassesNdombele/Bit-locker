@@ -1,5 +1,12 @@
 from django.urls import path
-from byte_locker_app.views import (password_generator, generate_password, save_account_datas, regenerate_password, cancel_generation, generation_sucess)
+from byte_locker_app.views import (
+    password_generator,
+    generate_password,
+    save_account_datas,
+    regenerate_password,
+    cancel_generation,
+    generation_sucess
+)
 
 urlpatterns = [
     path('form/', password_generator, name='passwd_gen'),
