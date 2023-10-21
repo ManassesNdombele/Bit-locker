@@ -142,11 +142,11 @@ def help_center(request):
 
 @login_required(login_url='/auth/login/')
 def saved_accounts(request):
-    return render(request, 'saved-accounts.html', {'account_datas': Accounts.objects.all()})
+    return render(request, 'saved-accounts.html', {'account_datas': Accounts.objects.filter(user=request.user)})
 
 @login_required(login_url='/auth/login/')
 def saved_passwords(request):
-    return render(request, 'saved-passwd.html', {'passwords_datas': Passwords.objects.all()})
+    return render(request, 'saved-passwd.html', {'passwords_datas': Passwords.objects.filter(user=request.user)})
 
 @login_required(login_url='/auth/login/')
 def new_password_datas(request):
