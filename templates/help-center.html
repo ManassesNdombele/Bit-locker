@@ -1,12 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block style_links %}
+<link rel="stylesheet" href="{% static 'styles/help-center.css' %}">
+{% endblock %}
 {% block main_content %}
-<header class="modal-header">
-    <h1>{{ ERROR_DESC }}</h1>
-    <button id="close-modal-help-center-btn">X</button>
-</header>
-<img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-help-center-modal">
-<div class="modal-details help-center-modal-details">
-    <p>De momento a ajuda não está disponível!</p>
-</div>
+<h1>Ajuda indisponível</h1>
+<p>Erro: A ajuda não está disponível de momento</p>
 {% endblock %}

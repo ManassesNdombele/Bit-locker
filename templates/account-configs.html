@@ -1,16 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block style_links %}
+<link rel="stylesheet" href="{% static 'styles/account-configs.css' %}">
+{% endblock %}
 {% block main_content %}
-<header class="modal-header">
+<section class="self-header">
     <h1>Sua conta</h1>
-    <button id="close-modal-account-configs-btn">X</button>
-</header>
-<img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-account-configs-modal">
-<div class="modal-details account-configs-modal-details">
     <img src="{% static 'images/user-icon.png' %}" alt="Foto de perfil do usuário">
+</section>
+<section class="user-datas">
     <p>Usuário: {{ user.username }}</p>
     <p>Email: {{ user.email }}</p>
     <p>Contas salvas: {{ accounts }}</p>
     <p>Senhas salvas: {{ passwords }}</p>
-</div>
+</section>
+<section class="actions">
+    <p>Acções</p>
+    <button>Mudar senha</button>
+    <button>Eliminar conta</button>
+    <button>Terminar sessão</button>
+    <button>Atualizar informações</button>
+</section>
 {% endblock %}

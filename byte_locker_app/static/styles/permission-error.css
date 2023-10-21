@@ -1,0 +1,15 @@
+main {
+    height: 100vh;
+}
+
+img#locked-icon {
+    width: 200px;
+    height: 200px;
+}
+
+p#error-warning {
+    color: #ff0000;
+    text-align: center;
+    width: 80%;
+    margin: 5px;
+}

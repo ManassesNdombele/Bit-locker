@@ -120,7 +120,7 @@ def cancel_generation(request):
 
 @login_required(login_url='/auth/login/')
 def generation_sucess(request):
-    return render(request, 'generation-sucess.html')
+    return render(request, 'sucess.html')
 
 @login_required(login_url='/auth/login/')
 def home(request):

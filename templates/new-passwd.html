@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="{% url 'save_password_datas' %}" method="post">
-        {% csrf_token %}
-        <label for="title-input">Título</label>
-        <input type="text" name="title-name" id="title-input">
-        <label for="passwd-input">Senha</label>
-        <input type="text" name="password-name" id="passwd-input">
-        <input type="submit" value="Salvar">
-    </form>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block style_links %}
+<link rel="stylesheet" href="{% static 'styles/new-passwd.css' %}">
+{% endblock %}
+{% block main_content %}
+<h1>Nova senha</h1>
+<form action="{% url 'save_password_datas' %}" method="post">
+    {% csrf_token %}
+    <label for="title-input">Título</label>
+    <input type="text" name="title-name" id="title-input">
+    <label for="passwd-input">Senha</label>
+    <input type="text" name="password-name" id="passwd-input">
+    <button type="submit">Salvar</button>
+</form>
+{% endblock %}

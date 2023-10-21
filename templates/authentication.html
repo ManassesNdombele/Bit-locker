@@ -1,12 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block style_links %}
+<link rel="stylesheet" href="{% static 'styles/authentication.css' %}">
+{% endblock %}
 {% block main_content %}
-<header class="modal-header">
-    <h1>Autenticação</h1>
-    <button id="close-modal-authenticator-btn">X</button>
-</header>
-<img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-authenticator-modal">
-<div class="modal-details authenticator-modal-details">
-    <p>Não é possível fazer a autenticação em dois passos no momento!</p>
-</div>
+<h1>Autenticação</h1>
+<p>Não é possível fazer a autenticação em dois passos no momento!</p>
 {% endblock %}

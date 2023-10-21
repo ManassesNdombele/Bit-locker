@@ -1,0 +1,59 @@
+:root {
+    --first_color: #041b2d;
+    --second_color: #0999e0;
+    --third_color: #184b81;
+    --fourth_color: #fff;
+    --title_font: 'Inclusive Sans', sans-serif;
+    --body_font: 'Montserrat', sans-serif;
+    --button_font: 'Raleway', sans-serif;
+}
+
+.self-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.self-header h1 {
+    text-align: center;
+    color: var(--second_color);
+    font-size: 1.4em;
+    font-weight: lighter;
+}
+
+.self-header img {
+    width: 20%;
+    height: 20%;
+}
+
+.user-datas {
+    margin: 2rem 0rem;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    flex-direction: column;
+}
+
+.user-datas > p {
+    margin-bottom: 0.5rem;
+    width: 100%;
+    text-align: left;
+    color: var(--first_color);
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: underline;
+}
+
+.actions > p {
+    text-align: left;
+    color: var(--second_color);
+    font-size: 1.4em;
+    font-weight: lighter;
+    margin-left: 1rem;
+}
+
+.actions > button {
+    width: 15rem;
+    margin: 0.7rem 1.5rem;
+}

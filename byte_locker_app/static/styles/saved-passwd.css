@@ -1,0 +1,70 @@
+:root {
+    --first_color: #041b2d;
+    --second_color: #0999e0;
+    --third_color: #184b81;
+    --fourth_color: #fff;
+    --title_font: 'Inclusive Sans', sans-serif;
+    --body_font: 'Montserrat', sans-serif;
+    --button_font: 'Raleway', sans-serif;
+}
+
+.saved-passwords {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.saved-passwords > h1 {
+    text-align: center;
+    color: var(--second_color);
+    font-size: 1.4em;
+    font-weight: lighter;
+}
+
+.saved-passwords > #new_passwd_btn {
+    margin: 2rem;
+}
+
+hr {
+    color: var(--second_color);
+    border-style: dotted;
+    border: 2px double var(--second_color);
+    width: 90%;
+}
+
+.saved-passwords > ul {
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.saved-passwords li {
+    margin-bottom: 1.7rem;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-direction: column;
+}
+
+.password-datas > p {
+    width: 90%;
+    text-align: left;
+    color: var(--first_color);
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: underline;
+}
+
+.password-datas > .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    width: 100%;
+}

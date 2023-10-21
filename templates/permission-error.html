@@ -1,1 +1,9 @@
-VOCÊ NÃO TEM PERMISSÃO PARA ACESSAR ESSA PÁGINA
+{% extends 'base.html' %}
+{% load static %}
+{% block style_links %}
+<link rel="stylesheet" href="{% static 'styles/permission-error.css' %}">
+{% endblock %}
+{% block main_content %}
+<img src="{% static 'images/permission-locked.png' %}" alt="Permissão bloqueada" id="locked-icon">
+<p id="error-warning">Você não tem permissão para acessar essa página!</p>
+{% endblock %}

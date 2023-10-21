@@ -1,1 +1,11 @@
-SUCESSO
+{% extends 'base.html' %}
+{% load static %}
+{% block style_links %}
+<link rel="stylesheet" href="{% static 'styles/sucess.css' %}">
+{% endblock %}
+{% block main_content %}
+<img src="{% static 'images/green-white.gif' %}" alt="Sucesso!" id="sucess-icon">
+<p id="sucess-message">Os seus dados foram salvos com sucesso no sistema!</p>
+<button id="sucess-btn">Voltar</button>
+<script src="{% static 'sucess.js' %}"></script>
+{% endblock %}

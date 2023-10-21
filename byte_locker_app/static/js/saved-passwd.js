@@ -1,3 +1,3 @@
-document.getElementsByClassName('btn')[0].addEventListener('click', () => {
+document.getElementsById('new_passwd_btn').addEventListener('click', () => {
     location.href = 'saved-passwords/new-password-datas/'
 })

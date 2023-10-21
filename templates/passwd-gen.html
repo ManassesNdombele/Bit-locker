@@ -1,18 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block style_links %}
-<link rel="stylesheet" href="{% static 'styles/passwd-gen-styles.css' %}">
+<link rel="stylesheet" href="{% static 'styles/passwd-gen.css' %}">
 {% endblock %}
 {% block main_content %}
 <header class="self-header">
     <h1>Gerador de senhas</h1>
 </header>
-<img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-password-generator">
 <div class="password-generator-details">
 {% if ERROR %}
 <section class="error-message">
     <p>{{ MESSAGE }}</p>
-    <button>Ok</button>
 </section>
 {% endif %}
 {% if not DATA_SENDED %}
@@ -61,11 +59,13 @@
     {% endif %}
     <label for="generated-passwd-id">Senha gerada</label>
     <input type="text" name="generated-passwd-input" id="generated-passwd-id" value="{{ PASSWORD }}" readonly>
-    <button type="submit" id="save-account-datas-btn" class="system-btn">Salvar</button>
+    <div class="form-actions">
+        <button type="submit" id="save-account-datas-btn" class="system-btn">Salvar</button>
+        <button id="regenerate-passwd-btn" class="system-btn">Regenerar</button>
+        <button id="cancel-submit-btn" class="system-btn">Cancelar</button>
+    </div>
 </form>
-<button id="regenerate-passwd-btn" class="system-btn">Regenerar</button>
-<button id="cancel-submit-btn" class="system-btn">Cancelar</button>
 {% endif %}
 </div>
-{% endblock %}
 <script src="{% static 'js/passwd-gen.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,25 @@
+:root {
+    --first_color: #041b2d;
+    --second_color: #0999e0;
+    --third_color: #184b81;
+    --fourth_color: #fff;
+    --title_font: 'Inclusive Sans', sans-serif;
+    --body_font: 'Montserrat', sans-serif;
+    --button_font: 'Raleway', sans-serif;
+}
+
+main { height: 100vh; }
+
+main > h1 {
+    text-align: center;
+    color: var(--second_color);
+    font-size: 1.4em;
+    font-weight: lighter;
+}
+
+main > p {
+    margin: 10px;
+    color: #ff0000;
+    width: 80%;
+    text-align: center;
+}

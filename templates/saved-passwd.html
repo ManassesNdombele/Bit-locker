@@ -1,25 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block style_links %}
+<link rel="stylesheet" href="{% static 'styles/saved-passwd.css' %}">
+{% endblock %}
 {% block main_content %}
-<!--<div class="saved-passwords modal">
-    <header class="modal-header">
-        <h1>Senhas salvas</h1>
-        <button id="close-modal-saved-passwords-btn">X</button>
-    </header>
-    <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-saved-passwords-modal">
-    <div class="modal-details saved-passwords-modal-details">
-        <p>Nenhuma senha salva no sistema!</p>
-        <button>Adicionar nova senha</button>
-    </div>
-</div>-->
-<button class="btn">Novo</button>
-<h4>Lista de senhas</h4>
-<ul>
-    {% for data in passwords_datas %}
-        <li>{{ data.title }} - {{ data.password }}</li>
-        <button>Modificar</button>
-        <button>Eliminar</button>
-    {% endfor %}
-</ul>
-<script src="{% static 'js/saved-passwd.js' %}"></script>
+<div class="saved-passwords">
+    <h1>Senhas salvas</h1>
+    <button id="new_passwd_btn">Nova senha</button>
+    <hr>
+    <ul>
+        {% for data in passwords_datas %}
+            <li class="password-datas">
+                <p>{{ data.title }} - {{ data.password }}</p>
+                <section class="actions">
+                    <button>Atualizar</button>
+                    <button>Eliminar</button>
+                </section>
+            </li>
+        {% endfor %}
+    </ul>
+    <hr>
+</div>
 {% endblock %}

@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block style_links %}
+<link rel="stylesheet" href="{% static 'styles/saved-accounts.css' %}">
+{% endblock %}
 {% block main_content %}
-<!--<header class="modal-header">
-    <h1>Contas salvas</h1>
-    <button id="close-modal-saved-accounts-btn">X</button>
-</header>
-<img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-saved-accounts-modal">
-<div class="modal-details saved-accounts-modal-details">
-    <p>Nenhuma conta salva no sistema!</p>
-    <button>Adicionar nova conta</button>
-</div>-->
-<h4>Contas salvas</h4>
+<h1>Contas salvas</h1>
+<hr>
 <ul>
     {% for data in account_datas %}
-        <li>{{ data.program_name }}</li>
-        <button>Ver detalhes</button>
-        <button>Modificar</button>
-        <button>Eliminar</button>
+        <li>
+            <p>{{ data.program_name }}</p>
+            <section class="actions">
+                <button>Ver detalhes</button>
+                <button>Atualizar</button>
+                <button>Eliminar</button>
+            </section>
+        </li>
     {% endfor %}
 </ul>
+<hr>
 {% endblock %}
