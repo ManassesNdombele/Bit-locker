@@ -18,5 +18,5 @@ urlpatterns = [
     path('authentication/', authentication, name='authentication'),
     path('help-center/', help_center, name='help_center'),
     path('saved-accounts/', saved_accounts, name='saved_accounts'),
-    path('saved-passwords/', saved_passwords, name='saved_passwords')
+    path('saved-passwords/', include('byte_locker_app.urls.saved_passwords'))
 ]

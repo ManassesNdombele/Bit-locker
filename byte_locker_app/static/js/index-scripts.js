@@ -11,7 +11,7 @@ option1.addEventListener('click', () => {
 })
 
 option2.addEventListener('click', () => {
-    location.href = 'saved-passwords/'
+    location.href = 'saved-passwords/list/'
 })
 
 option3.addEventListener('click', () => {

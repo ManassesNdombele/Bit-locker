@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.decorators import login_required
 from random import choices
-from byte_locker_app.models import Accounts
+from byte_locker_app.models import *
 
 class Auth_Platform():
     def register(self, request):
@@ -144,4 +144,18 @@ def saved_accounts(request):
 
 @login_required(login_url='/auth/login/')
 def saved_passwords(request):
-    return render(request, 'saved-passwd.html')
+    return render(request, 'saved-passwd.html', {'passwords_datas': Passwords.objects.all()})
+
+@login_required(login_url='/auth/login/')
+def new_password_datas(request):
+    return render(request, 'new-passwd.html')
+
+@login_required(login_url='/auth/login/')
+def save_password_datas(request):
+    if request.method == 'POST':
+        title = request.POST.get('title-name')
+        password = request.POST.get('password-name')
+        user = request.user
+        new_password = Passwords(title=title, password=password, user=user)
+        new_password.save()
+        return render(request, 'sucess.html')

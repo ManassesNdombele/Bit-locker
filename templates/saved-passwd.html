@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block main_content %}
-<div class="saved-passwords modal">
+<!--<div class="saved-passwords modal">
     <header class="modal-header">
         <h1>Senhas salvas</h1>
         <button id="close-modal-saved-passwords-btn">X</button>
@@ -11,5 +11,15 @@
         <p>Nenhuma senha salva no sistema!</p>
         <button>Adicionar nova senha</button>
     </div>
-</div>
+</div>-->
+<button class="btn">Novo</button>
+<h4>Lista de senhas</h4>
+<ul>
+    {% for data in passwords_datas %}
+        <li>{{ data.title }} - {{ data.password }}</li>
+        <button>Modificar</button>
+        <button>Apagar</button>
+    {% endfor %}
+</ul>
+<script src="{% static 'js/saved-passwd.js' %}"></script>
 {% endblock %}
