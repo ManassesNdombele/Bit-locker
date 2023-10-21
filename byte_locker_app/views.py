@@ -128,7 +128,9 @@ def home(request):
 
 @login_required(login_url='/auth/login/')
 def account_configs(request):
-    return render(request, 'account-configs.html')
+    user_accounts = Accounts.objects.filter(user=request.user)
+    user_passwords = Passwords.objects.filter(user=request.user)
+    return render(request, 'account-configs.html', {'user': request.user, 'accounts': user_accounts.count, 'passwords': user_passwords.count})
 
 @login_required(login_url='/auth/login/')
 def authentication(request):
@@ -140,7 +142,7 @@ def help_center(request):
 
 @login_required(login_url='/auth/login/')
 def saved_accounts(request):
-    return render(request, 'saved-accounts.html')
+    return render(request, 'saved-accounts.html', {'account_datas': Accounts.objects.all()})
 
 @login_required(login_url='/auth/login/')
 def saved_passwords(request):

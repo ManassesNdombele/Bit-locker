@@ -8,9 +8,9 @@
 <img src="{% static 'images/loading-load.gif' %}" alt="Loading Gif" id="loader-account-configs-modal">
 <div class="modal-details account-configs-modal-details">
     <img src="{% static 'images/user-icon.png' %}" alt="Foto de perfil do usuário">
-    <p>Manassés Ndombele</p>
-    <p>manassesndombele88@gmail.com</p>
-    <p>Contas salvas: 0</p>
-    <p>Senhas salvas: 0</p>
+    <p>Usuário: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Contas salvas: {{ accounts }}</p>
+    <p>Senhas salvas: {{ passwords }}</p>
 </div>
 {% endblock %}

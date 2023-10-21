@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block main_content %}
-<header class="modal-header">
+<!--<header class="modal-header">
     <h1>Contas salvas</h1>
     <button id="close-modal-saved-accounts-btn">X</button>
 </header>
@@ -9,5 +9,14 @@
 <div class="modal-details saved-accounts-modal-details">
     <p>Nenhuma conta salva no sistema!</p>
     <button>Adicionar nova conta</button>
-</div>
+</div>-->
+<h4>Contas salvas</h4>
+<ul>
+    {% for data in account_datas %}
+        <li>{{ data.program_name }}</li>
+        <button>Ver detalhes</button>
+        <button>Modificar</button>
+        <button>Eliminar</button>
+    {% endfor %}
+</ul>
 {% endblock %}
