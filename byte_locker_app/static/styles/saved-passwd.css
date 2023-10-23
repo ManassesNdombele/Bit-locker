@@ -52,19 +52,24 @@ hr {
     flex-direction: column;
 }
 
-.password-datas > p {
-    width: 90%;
+.password-datas > input {
+    width: 100%;
     text-align: left;
     color: var(--first_color);
     font-weight: bold;
     font-size: 1rem;
-    text-decoration: underline;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 3px;
+    border-color: var(--first_color);
+    padding: 0.4rem;
 }
 
-.password-datas > .actions {
+.actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 0.5rem;
-    width: 100%;
+    margin-top: 1rem;
+    width: 90%;
 }

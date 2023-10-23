@@ -11,14 +11,14 @@
     <ul>
         {% for data in passwords_datas %}
             <li class="password-datas">
-                <p>{{ data.title }} - {{ data.password }}</p>
-                <section class="actions">
-                    <button>Atualizar</button>
-                    <button>Eliminar</button>
-                </section>
+                <input type="text" value="{{ data.title }} - {{ data.password }}" readonly>
             </li>
         {% endfor %}
     </ul>
     <hr>
+    <section class="actions">
+        <button>Atualizar</button>
+        <button>Eliminar</button>
+    </section>
 </div>
 {% endblock %}
