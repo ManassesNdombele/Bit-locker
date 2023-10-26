@@ -16,9 +16,48 @@
 </section>
 <section class="actions">
     <p>Acções</p>
-    <button>Mudar senha</button>
-    <button>Eliminar conta</button>
-    <button>Terminar sessão</button>
-    <button>Atualizar informações</button>
+    <button class="account-action">Eliminar conta</button>
+    <button class="account-action">Terminar sessão</button>
+    <button class="account-action">Atualizar informações</button>
 </section>
+<div class="modal" id="delete-account">
+    <section class="modal-header">
+        <h1>Eliminação da conta</h1>
+        <button>X</button>
+    </section>
+    <p>Tens certeza que desejas eliminar a sua conta?. Todos os seus dados (contas e senhas) serão perdidos e não poderão ser recuperados.</p>
+    <section class="sub-actions">
+        <button>Sim</button>
+        <button>Não</button>
+    </section>
+</div>
+<div class="modal" id="logout">
+    <section class="modal-header">
+        <h1>Encerrar sessão</h1>
+        <button>X</button>
+    </section>
+    <p>Tens certeza de que queres terminar sessão?</p>
+    <section class="sub-actions">
+        <button>Sim</button>
+        <button>Não</button>
+    </section>
+</div>
+<div class="modal" id="update-account-datas">
+    <section class="modal-header">
+        <h1>Actualização de informações</h1>
+        <button>X</button>
+    </section>
+    <form method="post">
+        <label for="username">Nome de usuário</label>
+        <input type="text" name="username-name" id="username">
+        <label for="email">Email</label>
+        <input type="email" name="email-name" id="email">
+        <label for="old-password">Senha antiga</label>
+        <input type="password" name="old-password-name" id="old-password">
+        <label for="new-password">Nova senha</label>
+        <input type="text" name="new-password-name" id="new-password">
+        <button type="submit">Salvar</button>
+    </form>
+</div>
+<script src="{% static 'js/account-configs.js' %}"></script>
 {% endblock %}

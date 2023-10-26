@@ -19,4 +19,33 @@
     {% endfor %}
 </ul>
 <hr>
+<div class="user-account-datas-get action">
+    <h1>Informações da conta</h1>
+    <p>NOME DO PROGRAMA</p>
+    <p>EMAIL</p>
+    <p>NOME DE USUÁRIO</p>
+    <textarea cols="30" rows="20" readonly>DESCRIÇÃO</textarea>
+</div>
+<div class="user-account-datas-up action">
+    <h1>Actualização das informações da conta</h1>
+    <form method="post">
+        <label for="program_name">Nome do programa</label>
+        <input type="text" name="program-name" id="program_name">
+        <label for="email">Email</label>
+        <input type="email" name="email-name" id="email">
+        <label for="username">Nome de usuário</label>
+        <input type="text" name="username-name" id="username">
+        <label for="account-description">Descrição</label>
+        <textarea name="account-description-name" id="account-description" cols="30" rows="20">DESCRIÇÃO</textarea>
+        <button type="submit">Actualizar</button>
+    </form>
+</div>
+<div class="user-account-datas-del action">
+    <h1>Eliminação de conta</h1>
+    <p>Tens certeza que pretendes eliminar os dados da sua conta em PROGRAMA?</p>
+    <div class="actions">
+        <button>Sim</button>
+        <button>Não</button>
+    </div>
+</div>
 {% endblock %}

@@ -21,4 +21,33 @@
         <button>Eliminar</button>
     </section>
 </div>
+<div class="new-passwd action">
+    <h1>Nova senha</h1>
+    <form action="{% url 'save_password_datas' %}" method="post">
+        {% csrf_token %}
+        <label for="title-input">Título</label>
+        <input type="text" name="title-name" id="title-input">
+        <label for="passwd-input">Senha</label>
+        <input type="text" name="password-name" id="passwd-input">
+        <button type="submit">Salvar</button>
+    </form>
+</div>
+<div class="password-update action">
+    <h1>Actualização das informações da conta</h1>
+    <form method="post">
+        <label for="password-title">Título</label>
+        <input type="text" name="password-title-name" id="password-title">
+        <label for="password">Senha</label>
+        <input type="text" name="password-name" id="password">
+        <button type="submit">Actualizar</button>
+    </form>
+</div>
+<div class="password-delete action">
+    <h1>Eliminação de senha</h1>
+    <p>Tens certeza que pretendes eliminar a sua senha de TITULO?</p>
+    <div class="actions">
+        <button>Sim</button>
+        <button>Não</button>
+    </div>
+</div>
 {% endblock %}

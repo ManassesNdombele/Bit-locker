@@ -57,3 +57,67 @@
     width: 15rem;
     margin: 0.7rem 1.5rem;
 }
+
+.modal {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--fourth_color);
+    border: 2px solid var(--second_color);
+    border-radius: 0px;
+    width: 100%;
+    margin: auto;
+    padding: 0.2rem;
+    position: absolute;
+    top: 0px;
+    height: 20rem;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.6rem;
+}
+
+.modal-header >  h1 {
+    text-align: left;
+    color: var(--second_color);
+    font-size: 1.4em;
+    font-weight: lighter;
+}
+
+.modal-header > button {
+    color: var(--second_color);
+    background-color: transparent;
+    border: 0px none transparent;
+    font-size: 1.8em;
+    cursor: pointer;
+    border-radius: 20%;
+    padding: 0.7rem;
+    height: 2em;
+}
+
+.modal-header > button:active {
+    border: 2px solid var(--third_color);
+}
+
+.modal > p {
+    color: var(--first_color);
+    font-weight: lighter;
+    font-size: 1.1em;
+    text-align: center;
+    width: 80%;
+    margin: 2%;
+}
+
+.modal > .sub-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0.7rem;
+}
