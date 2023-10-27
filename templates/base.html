@@ -22,10 +22,12 @@
                 <button><img src="{% static 'images/home.png' %}" alt="Home Button Icon" id="home-btn"></button>
             </div>
         </header>
-        <main>
+        <main id="main-content">
             {% block main_content %}
             {% endblock %}
         </main>
+        {% block aside_content %}
+        {% endblock %}
     </body>
     <footer>
         <p>Copyright &copy; todos os direitos reservados</p>

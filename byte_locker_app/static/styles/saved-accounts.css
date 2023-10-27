@@ -37,7 +37,7 @@ main > ul > li > p {
     width: 90%;
     text-align: left;
     color: var(--first_color);
-    font-weight: bold;
+    font-weight: lighter;
     font-size: 1rem;
     text-decoration: underline;
 }

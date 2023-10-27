@@ -2,6 +2,7 @@
 {% load static %}
 {% block style_links %}
 <link rel="stylesheet" href="{% static 'styles/account-configs.css' %}">
+<link rel="stylesheet" href="{% static 'styles/modals.css' %}">
 {% endblock %}
 {% block main_content %}
 <section class="self-header">
@@ -20,32 +21,34 @@
     <button class="account-action">Terminar sessão</button>
     <button class="account-action">Atualizar informações</button>
 </section>
+{% endblock %}
+{% block aside_content %}
 <div class="modal" id="delete-account">
     <section class="modal-header">
         <h1>Eliminação da conta</h1>
-        <button>X</button>
+        <button class="close-modal-btn">X</button>
     </section>
     <p>Tens certeza que desejas eliminar a sua conta?. Todos os seus dados (contas e senhas) serão perdidos e não poderão ser recuperados.</p>
     <section class="sub-actions">
         <button>Sim</button>
-        <button>Não</button>
+        <button class="close-modal-btn">Não</button>
     </section>
 </div>
 <div class="modal" id="logout">
     <section class="modal-header">
         <h1>Encerrar sessão</h1>
-        <button>X</button>
+        <button class="close-modal-btn">X</button>
     </section>
     <p>Tens certeza de que queres terminar sessão?</p>
     <section class="sub-actions">
         <button>Sim</button>
-        <button>Não</button>
+        <button class="close-modal-btn">Não</button>
     </section>
 </div>
-<div class="modal" id="update-account-datas">
+<div class="modal form-modal" id="update-account-datas">
     <section class="modal-header">
         <h1>Actualização de informações</h1>
-        <button>X</button>
+        <button class="close-modal-btn">X</button>
     </section>
     <form method="post">
         <label for="username">Nome de usuário</label>
