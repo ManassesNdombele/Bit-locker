@@ -50,6 +50,16 @@ hr {
     flex-direction: column;
 }
 
+.saved-passwords p {
+    width: 90%;
+    text-align: left;
+    color: var(--first_color);
+    font-weight: lighter;
+    font-size: 1.4em;
+    text-decoration: underline;
+    border-bottom: 1px solid var(--second_color);
+}
+
 .password-datas > input {
     width: 100%;
     text-align: left;

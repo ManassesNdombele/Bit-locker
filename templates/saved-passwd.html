@@ -11,7 +11,7 @@
     <ul>
         {% for data in passwords_datas %}
             <li class="password-datas">
-                <input type="text" value="{{ data.title }} - {{ data.password }}" readonly>
+                <p>{{ data.title }} <br> {{ data.password }}</p>
             </li>
         {% endfor %}
     </ul>
