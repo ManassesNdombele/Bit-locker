@@ -35,11 +35,12 @@ main li {
 
 main > ul > li > p {
     width: 90%;
-    text-align: left;
+    text-align: center;
     color: var(--first_color);
     font-weight: lighter;
-    font-size: 1rem;
+    font-size: 1.4em;
     text-decoration: underline;
+    border-bottom: 1px solid var(--second_color);
 }
 
 main .actions {

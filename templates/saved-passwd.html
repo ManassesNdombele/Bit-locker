@@ -2,11 +2,11 @@
 {% load static %}
 {% block style_links %}
 <link rel="stylesheet" href="{% static 'styles/saved-passwd.css' %}">
+<link rel="stylesheet" href="{% static 'styles/modals.css' %}">
 {% endblock %}
 {% block main_content %}
 <div class="saved-passwords">
     <h1>Senhas salvas</h1>
-    <button id="new_passwd_btn">Nova senha</button>
     <hr>
     <ul>
         {% for data in passwords_datas %}
@@ -17,12 +17,18 @@
     </ul>
     <hr>
     <section class="actions">
-        <button>Atualizar</button>
-        <button>Eliminar</button>
+        <button class="saved-passwd-action">Atualizar</button>
+        <button class="saved-passwd-action">Nova senha</button>
+        <button class="saved-passwd-action">Eliminar</button>
     </section>
 </div>
-<div class="new-passwd action">
-    <h1>Nova senha</h1>
+{% endblock %}
+{% block aside_content %}
+<div class="modal" id="new-passwd">
+    <section class="modal-header">
+        <h1>Nova senha</h1>
+        <button class="close-modal-btn">X</button>
+    </section>
     <form action="{% url 'save_password_datas' %}" method="post">
         {% csrf_token %}
         <label for="title-input">Título</label>
@@ -32,8 +38,11 @@
         <button type="submit">Salvar</button>
     </form>
 </div>
-<div class="password-update action">
-    <h1>Actualização das informações da conta</h1>
+<div class="modal" id="password-update">
+    <section class="modal-header">
+        <h1>Actualização da senha</h1>
+        <button class="close-modal-btn">X</button>
+    </section>
     <form method="post">
         <label for="password-title">Título</label>
         <input type="text" name="password-title-name" id="password-title">
@@ -42,12 +51,16 @@
         <button type="submit">Actualizar</button>
     </form>
 </div>
-<div class="password-delete action">
-    <h1>Eliminação de senha</h1>
-    <p>Tens certeza que pretendes eliminar a sua senha de TITULO?</p>
-    <div class="actions">
+<div class="modal" id="password-delete">
+    <section class="modal-header">
+        <h1>Eliminação de senha</h1>
+        <button class="close-modal-btn">X</button>
+    </section>
+    <p class="description">Tens certeza que pretendes eliminar a sua senha de TITULO?</p>
+    <section class="sub-actions">
         <button>Sim</button>
-        <button>Não</button>
-    </div>
+        <button class="close-modal-btn">Não</button>
+    </section>
 </div>
+<script src="{% static 'js/saved-passwd.js' %}"></script>
 {% endblock %}

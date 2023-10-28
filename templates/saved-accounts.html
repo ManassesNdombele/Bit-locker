@@ -2,6 +2,7 @@
 {% load static %}
 {% block style_links %}
 <link rel="stylesheet" href="{% static 'styles/saved-accounts.css' %}">
+<link rel="stylesheet" href="{% static 'styles/modals.css' %}">
 {% endblock %}
 {% block main_content %}
 <h1>Contas salvas</h1>
@@ -10,31 +11,33 @@
     {% for data in account_datas %}
         <li>
             <p>{{ data.program_name }}</p>
-            <section class="actions">
-                <button>Ver detalhes</button>
-                <button>Atualizar</button>
-                <button>Eliminar</button>
-            </section>
         </li>
     {% endfor %}
 </ul>
 <hr>
+<section class="actions">
+    <button class="saved-accounts-action">Ver detalhes</button>
+    <button class="saved-accounts-action">Atualizar</button>
+    <button class="saved-accounts-action">Eliminar</button>
+</section>
 {% endblock %}
 {% block aside_content %}
-<div class="modal" id="user-account-datas-get">
+<div class="modal form-modal" id="user-account-datas-get">
     <section class="modal-header">
         <h1>Informações da conta</h1>
-        <button>X</button>
+        <button class="close-modal-btn">X</button>
     </section>
-    <p>NOME DO PROGRAMA</p>
-    <p>EMAIL</p>
-    <p>NOME DE USUÁRIO</p>
-    <textarea cols="30" rows="20" readonly>DESCRIÇÃO</textarea>
+    <section class="extra-datas">
+        <p>NOME DO PROGRAMA</p>
+        <p>EMAIL</p>
+        <p>NOME DE USUÁRIO</p>
+        <textarea cols="30" rows="20" readonly>DESCRIÇÃO</textarea>
+    </section>
 </div>
-<div class="modal" id="user-account-datas-up">
+<div class="modal form-big-modal" id="user-account-datas-up">
     <section class="modal-header">
-        <h1>Actualização das informações da conta</h1>
-        <button>X</button>
+        <h1>Actualização da conta</h1>
+        <button class="close-modal-btn">X</button>
     </section>
     <form method="post">
         <label for="program_name">Nome do programa</label>
@@ -51,12 +54,13 @@
 <div class="modal" id="user-account-datas-del">
     <section class="modal-header">
         <h1>Eliminação de conta</h1>
-        <button>X</button>
+        <button class="close-modal-btn">X</button>
     </section>
-    <p>Tens certeza que pretendes eliminar os dados da sua conta em PROGRAMA?</p>
-    <div class="actions">
+    <p class="description">Tens certeza que pretendes eliminar os dados da sua conta em PROGRAMA?</p>
+    <div class="sub-actions">
         <button>Sim</button>
-        <button>Não</button>
+        <button class="close-modal-btn">Não</button>
     </div>
 </div>
+<script src="{% static 'js/saved-accounts.js' %}"></script>
 {% endblock %}

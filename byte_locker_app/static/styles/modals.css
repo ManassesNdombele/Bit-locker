@@ -19,7 +19,7 @@
     width: 100%;
     margin: auto;
     padding: 0.2rem;
-    position: absolute;
+    position: fixed;
     top: 50%;
     transform: translateY(-50%);
     height: 20rem;
@@ -55,7 +55,7 @@
     border: 2px solid var(--third_color);
 }
 
-.modal > p {
+.modal > p.description {
     color: var(--third_color);
     font-weight: lighter;
     font-size: 1.1em;
@@ -63,7 +63,7 @@
     width: 90%;
 }
 
-.modal > .sub-actions {
+.modal  .sub-actions {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -83,11 +83,30 @@
     width: 80%;
 }
 
+.modal > .extra-datas {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    width: 80%;
+}
+
+.extra-datas > p {
+    margin: 10px;
+}
+
 .modal label {
     color: var(--third_color);
     font-size: 1em;
     width: 100%;
-    text-align: left;    
+    text-align: left;
+}
+
+.modal p {
+    color: var(--third_color);
+    font-size: 1em;
+    width: 100%;
+    text-align: left;
 }
 
 .modal input {
@@ -105,6 +124,22 @@
     height: 30rem;
 }
 
+.form-big-modal {
+    height: 40rem;
+}
+
 .modal > form > button {
     width: 10rem;
+}
+
+.modal textarea {
+    background-color: transparent;
+    border: 1px solid var(--second_color);
+    height: 180px;
+    width: 100%;
+    border-radius: 8px;
+    padding: 0.2rem 0.5rem;
+    margin: 1rem;
+    color: var(--first_color);
+    transform: translateX(-2px);
 }
