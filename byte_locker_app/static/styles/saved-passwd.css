@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
 }
 
 .saved-passwords > h1 {
@@ -37,20 +37,19 @@ hr {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
 }
 
 .saved-passwords li {
     margin-bottom: 1.7rem;
-    width: 80%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: left;
-    flex-direction: column;
 }
 
-.saved-passwords p {
+.saved-passwords label {
     width: 90%;
     text-align: left;
     color: var(--first_color);
@@ -60,18 +59,10 @@ hr {
     border-bottom: 1px solid var(--second_color);
 }
 
-.password-datas > input {
-    width: 100%;
-    text-align: left;
-    color: var(--first_color);
-    font-weight: bold;
-    font-size: 1rem;
-    border-top-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px;
-    border-bottom-width: 3px;
-    border-color: var(--first_color);
-    padding: 0.4rem;
+.saved-passwords input {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0rem 0.8rem;
 }
 
 .actions {

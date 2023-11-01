@@ -11,7 +11,8 @@
     <ul>
         {% for data in passwords_datas %}
             <li class="password-datas">
-                <p>{{ data.title }} <br> {{ data.password }}</p>
+                <input type="radio" name="password-data" id="password-{{ data.password_key }}">
+                <label for="password-{{ data.password_key }}">{{ data.title }} - {{ data.password }}</label>
             </li>
         {% endfor %}
     </ul>
